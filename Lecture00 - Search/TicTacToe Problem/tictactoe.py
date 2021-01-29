@@ -133,7 +133,6 @@ def minimax(board):
 
     boardClone = copy.deepcopy(board)
     current_player = player(board)
-    print(actions(boardClone))
 
     if current_player == O:
         if(not terminal(boardClone)):
