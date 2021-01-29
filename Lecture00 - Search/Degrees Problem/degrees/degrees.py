@@ -92,11 +92,46 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
 
-    
+    # Estruturas para armazenar os nós já visitados e para armazenar o caminho percorrido até encontrar o target
+    visited = []
+    path = []
 
-    # TODO
-    raise NotImplementedError
+    # Criação do nó inicial, instância da fronteira e adição do nó criado na fronteira
+    firstNode = Node(source, None, None)
+    frontier = QueueFrontier()
+    frontier.add(firstNode)
 
+    while True:
+        # Se a fronteira é vazia então o target não foi encontrado
+        if frontier.empty():
+            return None
+        
+        # Remove o nó da fronteira. A lógica de remoção é FIFO por se tratar de uma fila
+        currentNode = frontier.remove()
+
+        # Se o target for encontrado, o caminho reverso dos nós acontece utilizando o pai do nó como ligação entre eles
+        if currentNode.state == target:
+            while currentNode.parent is not None:
+                path.append((currentNode.action, currentNode.state))
+                currentNode = currentNode.parent
+
+            path.reverse()
+            return path
+
+        visited.append(currentNode)
+        
+        # Essa função retorna um set que armazena os ids vizinhos do nó atual
+        neighbors = neighbors_for_person(currentNode.state)
+
+        # Percorre os ids vizinhos e os instancia como nós.
+        # Caso eles não tenham sido visitados ou não estão na fronteira, são adicionados na fronteira
+        for node in neighbors:
+            newNode = Node(node[1], currentNode, node[0])
+
+            if frontier.contains_state(newNode.state) or newNode.state in visited:
+                pass
+            else:
+                frontier.add(newNode)
 
 def person_id_for_name(name):
     """
