@@ -1,3 +1,9 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 29/01/2021
+#
+# Os conteúdos das funções shortest_path foram implementados por mim
+
 import csv
 import sys
 

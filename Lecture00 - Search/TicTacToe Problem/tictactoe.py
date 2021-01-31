@@ -1,3 +1,9 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 29/01/2021
+#
+# Os conteúdos de todas as funções, exceto a initial_state, foram implementados por mim
+
 """
 Tic Tac Toe Player
 """
