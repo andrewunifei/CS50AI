@@ -11,5 +11,5 @@ Além disso, foram apresentados definições e implementações de algoritmos de
 ### Projects
 O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 00 - Search* desse repositório. O primeiro projeto é uma implementação do jogo *Six Degrees of Kevin Bacon* utilizando *breadth-first search* para realizar as buscas. O segundo é uma implementação do jogo da velha utilizando *minimax* como inteligência artificial adversária.
 
-#### Depêndencias
+#### Dependencies 
 O projeto do jogo da velha tem a dependência [pygame](https://github.com/pygame/). Para instalação, digite a seguinte linha de código na pasta dos arquivos do projeto: `pip3 install -r requirements.txt`
