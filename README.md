@@ -1,7 +1,7 @@
 # CS50AI
 Repositório para manter as atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
 
-#### Dependencies 
+### Dependencies 
 Alguns projetos necessitam da dependência [pygame](https://github.com/pygame/). Para instalação, digite a seguinte linha de código na pasta dos arquivos do projeto que necessita da dependência: `pip3 install -r requirements.txt`
 
 ## Lecture 00 - Search
