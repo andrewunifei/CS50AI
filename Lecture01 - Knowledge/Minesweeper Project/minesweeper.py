@@ -1,3 +1,10 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 31/01/2021
+#
+# Os conteúdos das funções known_mines, known_safes, mark_mine, mark_safe na classe Sentence,
+# e o conteúdo da função add_knowledge na classe MinesweeperAI, foram implementados por mim
+
 import itertools
 import random
 
@@ -93,8 +100,6 @@ class Sentence():
     def __init__(self, cells, count):
         self.cells = set(cells)
         self.count = count
-        self.known_mines = set()
-        self.known_safes = set()
 
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
@@ -106,13 +111,19 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
-        return self.known_mines
+        if self.count == len(self.cells) and self.count != 0:
+            return self.cells
+        
+        return set()
 
     def known_safes(self):
         """
         Returns the set of all cells in self.cells known to be safe.
         """
-        return self.known_safes
+        if self.count == 0:
+            return self.cells
+        
+        return set()  
 
     def mark_mine(self, cell):
         """
@@ -120,9 +131,10 @@ class Sentence():
         a cell is known to be a mine.
         """
         if cell in self.cells:
-            self.known_mines.add(cell)
             self.cells.remove(cell)
             self.count =- 1
+        
+        return
 
     def mark_safe(self, cell):
         """
@@ -130,20 +142,9 @@ class Sentence():
         a cell is known to be safe.
         """
         if cell in self.cells:
-            self.known_safes.add(cell)
             self.cells.remove(cell)
-    
-    def getCount(self):
-        return self.count
-    
-    def getCells(self):
-        return self.cells
-    
-    def getKnown_mines(self):
-        return self.known_mines
-
-    def getKnown_safes(self):
-        return self.known_safes
+        
+        return
 
 
 class MinesweeperAI():
@@ -175,6 +176,8 @@ class MinesweeperAI():
         self.mines.add(cell)
         for sentence in self.knowledge:
             sentence.mark_mine(cell)
+        
+        return
 
     def mark_safe(self, cell):
         """
@@ -184,6 +187,8 @@ class MinesweeperAI():
         self.safes.add(cell)
         for sentence in self.knowledge:
             sentence.mark_safe(cell)
+
+        return
 
     def add_knowledge(self, cell, count):
         """
@@ -201,10 +206,7 @@ class MinesweeperAI():
                if they can be inferred from existing knowledge
         """
         self.moves_made.add(cell)
-
-        # Marca a célula como segura em todas as sentenças em que ela está presente
-        for sentence in self.knowledge:
-            self.mark_safe(cell)
+        self.mark_safe(cell)
 
         # Adiciona uma nova sentença na base de conhecimento da IA
         adjacent_cells = set()
@@ -214,44 +216,25 @@ class MinesweeperAI():
         coordinates = ((-1, 1), (-1, 0), (-1, -1), (0, 1), (0, -1), (1, 1), (1, 0), (1, -1))
 
         for coordinate in coordinates:
-            adjacent_cells.add((i + coordinate[0], j + coordinate[1]))
+            c_i = i + coordinate[0]
+            c_j = j + coordinate[1]
+
+            ## Checa se as novas coordenadas estão dentro do tabuleiro e for adas jogadas feitas
+            if (c_i >= 0 and c_i < self.height) and (c_j >= 0 and c_j < self.width) and ((c_i, c_j) not in self.moves_made):
+                adjacent_cells.add((i + coordinate[0], j + coordinate[1]))
         
         self.knowledge.append(Sentence(adjacent_cells, count))
+        print(adjacent_cells)
 
-        while True:
-            # Inferência 1: Se (count = 0) ou (count = número de células na sentença)
-            for sentence in self.knowledge:
-                    if sentence.getCount() == 0:
-                        for cell in sentence.getCells():
-                            self.mark_safe(cell)
+        # 4
+        temp = self.knowledge.copy()
+        self.update()
 
-                    elif sentence.getCount() == len(sentence):
-                        for cell in sentence.getCells():
-                            self.mark_mine(cell)
-
-            # Inferência 2: Dado uma sentença, por exemplo,
-            #
-            #                   {A, B, C} = 2
-            #
-            #               E uma nova informação, como, "C percente ao conjunto das minas". É possível inferir,
-            #                       
-            #                   {A, B} = 1
-            #               
-            #               De modo semelhante, se a nova informação for "C percente ao conjunto seguro", temos,
-            #
-            #                   {A, B} = 2
-            for sentence in self.knowledge:
-                for known_mine in self.mines:
-                    if known_mine in sentence.getCells():
-                        sentence.mark_mine(known_mine)
-
-                for known_safe in self.safes:
-                    if known_safe in sentence.getCells():
-                       sentence.mark_safe(known_safe)
-
-            # Inferência 3:
-
-
+        # 5
+        while self.knowledge != temp:
+            temp = self.knowledge
+            self.update()
+        return
 
     def make_safe_move(self):
         """
@@ -262,7 +245,11 @@ class MinesweeperAI():
         This function may use the knowledge in self.mines, self.safes
         and self.moves_made, but should not modify any of those values.
         """
-        raise NotImplementedError
+        if len(self.safes) != 0:
+            for cell in self.safes:
+                if cell not in self.moves_made:
+                    return cell
+        return None
 
     def make_random_move(self):
         """
@@ -271,4 +258,44 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        raise NotImplementedError
+
+        free = []
+        for i in range(self.height):
+            for j in range(self.width):
+                cell = (i, j)
+                if cell not in self.moves_made and cell not in self.mines:
+                    free.append(cell)
+        # BUG: if there are no free moves return None
+        # fixed with below "if statement"
+        if len(free) == 0:
+            return None
+        else:
+            i = random.randrange(len(free))
+            return free[i]
+
+    def update(self):
+        if len(self.mines) != 0:
+            for mine in self.mines:
+                self.mark_mine(mine)
+        if len(self.safes) != 0:
+            for safe in self.safes:
+                self.mark_safe(safe)
+        if len(self.knowledge) != 0:
+            for sentence in self.knowledge:
+                self.safes = self.safes.union(sentence.known_safes())
+                self.mines = self.mines.union(sentence.known_mines())
+        # do the subtraction thing
+        temp_know = []
+        if len(self.knowledge) > 1:
+            for super_set in self.knowledge:
+                for sub_set in self.knowledge:
+                    if sub_set.cells.issubset(super_set.cells) and sub_set != super_set:
+                        new_cells = super_set.cells - sub_set.cells
+                        new_count = super_set.count - sub_set.count
+                        new_sentence = Sentence(cells=new_cells, count=new_count)
+                        temp_know.append(new_sentence)
+            for temp_sent in temp_know:
+                # BUG: do not add duplicates to knowledge
+                # fixed with below "if statement"
+                if temp_sent not in self.knowledge:
+                    self.knowledge.append(temp_sent)
