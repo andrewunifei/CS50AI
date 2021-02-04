@@ -21,7 +21,6 @@ def initial_state():
             [EMPTY, EMPTY, EMPTY],
             [EMPTY, EMPTY, EMPTY]]
 
-
 def player(board):
     # Retorna o jogador da próxima rodada
     count = 0
@@ -47,14 +46,12 @@ def actions(board):
     
     return possible_actions
 
-
 def result(board, action):
-    # Retorna o board que resulta do movimento (i, j)
-    current_player = player(board)
-    board[action[0]][action[1]] = current_player
+    # Retorna o clone da board que resulta do movimento (i, j)
+    cloneBoard = copy.deepcopy(board)
+    cloneBoard[action[0]][action[1]] = player(board)
 
-    return board
-
+    return cloneBoard
 
 def winner(board):
     # Retorna o vencedor do jogo, se existe algum
@@ -115,42 +112,47 @@ def utility(board):
 def min_value(board):
     if terminal(board):
         return utility(board), ()
-    v = 9999
+    v = math.inf
+    move = None
 
     for action in actions(board):
-        value, aktion = max_value(result(board, action))
-        v = min(v, value)
+        aux, aktion = max_value(result(board, action))
+        if aux < v:
+            v = aux
+            move = action
+            if v == -1:
+                return v, move
 
-    return v, action
+    return v, move
 
 def max_value(board):
     if terminal(board):
         return utility(board), ()
-    v = -9999
+    v = -math.inf
 
     for action in actions(board):
         value, aktion = min_value(result(board, action))
         v = max(v, value)
+        if v == 1:
+            return v, action
 
     return v, action
 
 def minimax(board):
     # Retorna a ação ótima do jogador atual
-
-    boardClone = copy.deepcopy(board)
     current_player = player(board)
 
     if current_player == O:
-        if(not terminal(boardClone)):
-            v, action = min_value(boardClone)
+        if(not terminal(board)):
+            v, action = min_value(board)
 
-            return action # Mudar isso
+            return action
         else:
             return None
     else:
-        if(not terminal(boardClone)):
-            v, action = max_value(boardClone)
+        if(not terminal(board)):
+            v, action = max_value(board)
 
-            return action # Mudar isso
+            return action
         else:
             return None

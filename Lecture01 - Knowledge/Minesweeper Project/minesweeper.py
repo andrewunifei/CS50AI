@@ -224,7 +224,6 @@ class MinesweeperAI():
                 adjacent_cells.add((i + coordinate[0], j + coordinate[1]))
         
         self.knowledge.append(Sentence(adjacent_cells, count))
-        print(adjacent_cells)
 
         # 4
         temp = self.knowledge.copy()
@@ -277,13 +276,16 @@ class MinesweeperAI():
         if len(self.mines) != 0:
             for mine in self.mines:
                 self.mark_mine(mine)
+
         if len(self.safes) != 0:
             for safe in self.safes:
                 self.mark_safe(safe)
+
         if len(self.knowledge) != 0:
             for sentence in self.knowledge:
                 self.safes = self.safes.union(sentence.known_safes())
                 self.mines = self.mines.union(sentence.known_mines())
+
         # do the subtraction thing
         temp_know = []
         if len(self.knowledge) > 1:
@@ -294,6 +296,7 @@ class MinesweeperAI():
                         new_count = super_set.count - sub_set.count
                         new_sentence = Sentence(cells=new_cells, count=new_count)
                         temp_know.append(new_sentence)
+                        
             for temp_sent in temp_know:
                 # BUG: do not add duplicates to knowledge
                 # fixed with below "if statement"
