@@ -129,14 +129,17 @@ def max_value(board):
     if terminal(board):
         return utility(board), ()
     v = -math.inf
+    move = None
 
     for action in actions(board):
-        value, aktion = min_value(result(board, action))
-        v = max(v, value)
-        if v == 1:
-            return v, action
+        aux, aktion = min_value(result(board, action))
+        if aux > v:
+            v = aux
+            move = action
+            if v == 1:
+                return v, move
 
-    return v, action
+    return v, move
 
 def minimax(board):
     # Retorna a ação ótima do jogador atual
