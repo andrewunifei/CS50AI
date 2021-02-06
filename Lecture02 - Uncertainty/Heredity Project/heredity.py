@@ -1,6 +1,13 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 06/01/2021
+#
+# Os conteúdos das funções joint_probability, update e normalize foram implementados por mim
+
 import csv
 import itertools
 import sys
+import math
 
 PROBS = {
 
@@ -35,7 +42,6 @@ PROBS = {
     # Mutation probability
     "mutation": 0.01
 }
-
 
 def main():
 
@@ -93,7 +99,6 @@ def main():
                 p = probabilities[person][field][value]
                 print(f"    {value}: {p:.4f}")
 
-
 def load_data(filename):
     """
     Load gene and trait data from a file into a dictionary.
@@ -115,7 +120,6 @@ def load_data(filename):
             }
     return data
 
-
 def powerset(s):
     """
     Return a list of all possible subsets of set s.
@@ -126,7 +130,6 @@ def powerset(s):
             itertools.combinations(s, r) for r in range(len(s) + 1)
         )
     ]
-
 
 def joint_probability(people, one_gene, two_genes, have_trait):
     """
@@ -139,9 +142,70 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone in set `have_trait` has the trait, and
         * everyone not in set` have_trait` does not have the trait.
     """
-    raise NotImplementedError
+    result = 1
 
+    for person in people:
+        have = person in have_trait
+        
+        if person in one_gene:
+            person_genes = 1
+        elif person in two_genes:
+            person_genes = 2
+        else:
+            person_genes = 0
 
+        if people[person]['mother'] == None:
+            result *= PROBS["gene"][person_genes]
+
+        else:
+            does_get = []
+            doesnt_get = []
+            parents = ['mother', 'father']
+
+            for i, parent in enumerate(parents):
+                if people[person][parent] in one_gene:
+                    # Metada da chance de herdar o gene.
+                    # 0.5 - PROBS["mutation"] de herdar,
+                    # porém o outro gene também tem uma probabilidade de mutação, portanto,
+                    # 0.5 - PROBS["mutation"] + PROBS["mutation"],
+                    # logo a probabilidade de mutação é cancelada
+
+                    does_get.append(0.5)
+
+                elif people[person][parent] in two_genes:
+                    does_get.append(1 - PROBS["mutation"])
+
+                else:
+                    does_get.append(PROBS["mutation"])
+
+                doesnt_get.append(1 - does_get[i])
+            
+            if person_genes == 1:
+                # Em termos de probabilidade, vamos considerar:
+                # as vezes que o filho não herda da mãe (doesnt_get[0]) qual a probabilidade dele herdar do pai (does_get[1]).
+                # Somado a isso, temos:
+                # as vezes que o filho não herda do pai (doesnt_get[1]) qual a probabilidade dele herdar da mãe (does_get[0])
+
+                result *= doesnt_get[0] * does_get[1] + doesnt_get[1] * does_get[0]
+
+            elif person_genes == 2:
+                # Em termos de probabilidade, vamos considerar:
+                # a probabilidade do filho herdar o gene da mãe (does_get[0]) E
+                # a probabilidade do filho herdar o gene do pai (does_get[1])
+                
+                result *= does_get[0] * does_get[1]
+
+            else:
+                # Em termos de probabilidade, vamos considerar:
+                # a probabilidade do filho não herdar o gene da mãe (doesnt_get[0]) E
+                # a probabilidade do filho não herdar o gene do pai (doesnt_get[1]) 
+
+                result *= doesnt_get[0] * doesnt_get[1]
+            
+        result *= PROBS["trait"][person_genes][have]
+            
+    return result
+            
 def update(probabilities, one_gene, two_genes, have_trait, p):
     """
     Add to `probabilities` a new joint probability `p`.
@@ -149,16 +213,33 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
     Which value for each distribution is updated depends on whether
     the person is in `have_gene` and `have_trait`, respectively.
     """
-    raise NotImplementedError
+    for person in probabilities:
+        if person in one_gene:
+            person_gene = 1
+        elif person in two_genes:
+            person_gene = 2
+        else:
+            person_gene = 0
+        
+        have = True if person in have_trait else False
 
+        probabilities[person]['trait'][have] += p
+        probabilities[person]['gene'][person_gene] += p
 
 def normalize(probabilities):
     """
     Update `probabilities` such that each probability distribution
     is normalized (i.e., sums to 1, with relative proportions the same).
     """
-    raise NotImplementedError
+    new_value = dict()
 
+    for person in probabilities:
+        for group in probabilities[person]:
+            for key in probabilities[person][group]:
+                new_value[key] = probabilities[person][group][key]/sum(value for value in probabilities[person][group].values())
+
+            probabilities[person][group] = new_value.copy()
+            new_value = {}
 
 if __name__ == "__main__":
     main()
