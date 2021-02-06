@@ -63,9 +63,6 @@ def transition_model(corpus, page, damping_factor):
     a link at random chosen from all pages in the corpus.
     """
     
-    if len(corpus[page]) == 0:
-        corpus[page] = {page for page in corpus.keys()}
-    
     number_of_pages = len(corpus[page])
     damping_probability = damping_factor/number_of_pages
     additional_probability = (1 - damping_factor)/(1 + number_of_pages)
@@ -88,16 +85,25 @@ def sample_pagerank(corpus, damping_factor, n):
     """
     track = {}
     for page_ in corpus.keys():
+        # O exercício estabelece que, se uma página não faz ligação com ninguém,
+        # deve-se considerar que ela faz ligação com todas as páginas
+        if len(corpus[page_]) == 0:
+            corpus[page_] = {page for page in corpus.keys()}
+
         track[page_] = 0
 
     page = random.choice(list(corpus.items()))[0]
     track[page] += 1
 
     for i in range(n - 1):
+        # Retorna um critério de peso de seleção para cada página
         probability_dict = transition_model(corpus, page, damping_factor)
+        # Escolhe uma página pseudo-aleatóriamente a partir de um critério de peso
         page = random.choices(list(probability_dict.keys()), weights=list(probability_dict.values()), k=1)[0]
         track[page] += 1
 
+    # Retorna um dicionário com as probabilidades de acesso a cada página
+    # a partir da quantidade de vezes que elas foram selecionadas 
     return {key: value/n for key, value in track.items()}
 
 
@@ -112,32 +118,40 @@ def iterate_pagerank(corpus, damping_factor):
     """
     rank = {}
     former_rank = {}
+    page_links = set()
 
-    for page in corpus.keys():
-        if len(corpus[page]) == 0:
-            corpus[page] = {page for page in corpus.keys()}
+    for page_ in corpus.keys():
+        # O exercício estabelece que, se uma página não faz ligação com ninguém,
+        # deve-se considerar que ela faz ligação com todas as páginas
+        if len(corpus[page_]) == 0:
+            corpus[page_] = {page for page in corpus.keys()}
         
-        rank[page] = 1/len(corpus.keys())
+        # Inicialmente, todas as páginas tem probabilidade igual
+        rank[page_] = 1/len(corpus.keys())
 
     while True:
         stop_condition = 0
-        page_links = set()
         former_rank = rank.copy()
         aux = {}
 
         for page in corpus.keys():
+            # Busca pelos links que levam a página atual
             for super_page in corpus.keys():
                 if page in corpus[super_page]:
                     page_links.add(super_page)
 
+            # Cálculo da probabilidade
             first_condition = (1 - damping_factor)/len(corpus.keys())
             second_condition = damping_factor * sum(rank[super_page]/len(corpus[super_page]) for super_page in page_links)
             rank[page] = first_condition + second_condition
+
+            page_links = set()
                 
         for page in rank.keys():
             # Normalização
             aux[page] = rank[page]/sum(value for value in rank.values())
             
+            # Verificação de distância entre o ranqueamento anterior e o atual
             if abs(former_rank[page] - aux[page]) < 0.001:
                 stop_condition += 1
         
