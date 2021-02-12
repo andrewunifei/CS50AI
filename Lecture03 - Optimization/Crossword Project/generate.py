@@ -1,3 +1,11 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 12/02/2021
+#
+# Os conteúdos das funções 
+# enforce_node_consistency, revise, ac3, assignment_complete, consistent, order_domain_values, elect_unassigned_variable e backtrack
+# foram implementados por mim
+
 import sys
 import queue
 from crossword import *
@@ -103,7 +111,6 @@ class CrosswordCreator():
                 if len(word) != variable.length:
                     self.domains[variable].remove(word)
 
-    # ESSA FUNÇÃO PRECISA SER AJUSTADA
     def revise(self, x, y):
         """
         Make variable `x` arc consistent with variable `y`.
@@ -115,21 +122,17 @@ class CrosswordCreator():
         """
         revised = False
         overlap = self.crossword.overlaps[x, y]
-        print(self.domains[x].copy())
-        print(self.domains[y].copy())
+        new_domain = set()
 
         if overlap:
             x_letter, y_letter = overlap
             for word_x in self.domains[x].copy():
                 for word_y in self.domains[y]:
-                    if word_x[x_letter] != word_y[y_letter]:
-                        self.domains[x].remove(word_x)
+                    if word_x[x_letter] == word_y[y_letter]:
+                        new_domain.add(word_x)
                         revised = True
-                        break
-                    else:
-                        break
         
-        print(self.domains[x])
+            self.domains[x] = new_domain
         
         return revised
 
@@ -180,7 +183,7 @@ class CrosswordCreator():
         """
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
-        """ 
+        """
         # Checa se os tamanhos estão certos
         for variable in assignment:
             if variable.length != len(assignment[variable]):
@@ -279,9 +282,8 @@ class CrosswordCreator():
         if self.assignment_complete(assignment): return assignment
         var = self.select_unassigned_variable(assignment)
         for value in self.order_domain_values(var, assignment):
-            
+            assignment[var] = value 
             if self.consistent(assignment):
-                assignment[var] = value# and self.ac3(self.crossword.neighbors(var)):
                 result = self.backtrack(assignment)
                 if result != None: return result
             del assignment[var]

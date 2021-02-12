@@ -1,6 +1,6 @@
 # Andrew Enrique Oliveira
 # Ciência da Computação - Universidade Federal de Itajubá (2017 - )
-# 05/01/2021
+# 05/02/2021
 #
 # Os conteúdos das funções transition_model, sample_pagerank e iterate_pagerank foram implementados por mim
 
