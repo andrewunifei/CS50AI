@@ -51,11 +51,11 @@ Programação linear geralmente aparece no contexto de resolução para alguma f
 
 Minimizar uma função de custo
 <br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613134426.png">
+<img src="http://www.sciweavers.org/download/Tex2Img_1613154101.png">
 <br><br>
 Com limitações da forma
 <br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613134097.png">
+<img src="http://www.sciweavers.org/download/Tex2Img_1613154145.png">
 <br><br>
 E com restrições para cada variável do tipo
 <br><br>
