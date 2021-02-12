@@ -37,3 +37,53 @@ Para concluir, foi abordado a noção de probabilidades variando em função do 
 
 ### Projects
 O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 02 - Uncertainty* desse repositório. O primeiro projeto é uma implementação de uma versão do método de ranqueamento de páginas usado pelo Google denomidado "*PageRank*" que toma como parâmetro um corpus de páginas e ranquea as probabilidade de um internauta acessar cada página em função das ligações que elas têm entre si. O segundo projeto é uma implementação de um método para calcular a probabilidade da prole de um casal herdar o gene GJB2 sob condição de mutação (a mutação desse gene é responsável por causar problemas de audição). O cálculo foi realizado a partir da dstribuição de probabilidade conjunta das varáveis envolvidas no problema.
+
+## Lecture 03 - Optimization
+Nessa aula foi apresentado a noção de otimização (*optimization*) no contexto de IA. Otimização é a escolha da melhor opção dado um conjunto de opções. A fim de explorar essa noção, foram abordadas três categorias de problemas que exigem algoritmos específicos para resolução e otimização.
+
+### Local Search
+Algoritmo de busca que, geralemente, utiliza apenas um nó e realiza a busca movendo-se para nós vizinhos. Busca local é especialmente útil quando o escopo do problema não é o caminho (*path*), mas sim a solução.
+
+Ainda nesse contexto, foi abordado o conceito de *state-space landscape*, que represeta um estado particular que um cenário poderia estar, e expressa características como: máximo global (*global maximum*), minímo global (*global minimum*), função objetivo (*objective function) e função de custo (*cost function*). Além disso, um exemplo apresentado de algoritmo de busca local foi o *hill climbing* e suas variantes (*steepest-ascent*, *stochastic*, *first-choice*, *random-restart* e *local beam search*) que são utéis dependendo da situação. O *hill climbing* expressa o problema da possibilidade de não encontrar o máximo/mínimo global, que pode ser contornados pelo algoritmo *simulated anneling*, que simula o processo de um sistema de alta temperatura, onde as coisas estão se movendo aleatoriamente, mas com o passar do tempo ocorre uma diminuição na temperatura e eventualmente se chega em uma solução.
+
+### Linear Programming
+Programação linear geralmente aparece no contexto de resolução para alguma função matemática. É uma família de problemas que apresenta uma situação do seguinte tipo:
+
+Minimizar uma função de custo
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613134426.png">
+<br><br>
+Com limitações da forma
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613134097.png">
+<br><br>
+E com restrições para cada variável do tipo
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613134174.png">
+<br><br>
+Existem vários tipos de algoritmos para solucionar problemas dessa categoria, dois exemplos são *simplex* e *interior-point*.
+
+### Constraint Satisfaction Problems (CSP)
+A ideia básica dos problemas da satisfação de restrições é uma situação onde se tem um número de variáveis que terão algum valor atribuido. Então, é necessário descobrir quais valores atribuir para essas variáveis, porém essas variáveis estão sujeitas a restrições particulares que irão limitar quais valores podem ser atribuidos a elas. Essa noção pode ser expressa da seguinte maneira:
+
+Conjunto de variáveis
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613135599.png">
+<br><br>
+Conjunto de domínios para cada variável
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613135591.png">
+<br><br>
+E conjunto de restrições
+<br><br>
+<img src="http://www.sciweavers.org/download/Tex2Img_1613135659.png">
+<br><br>
+Sudoku é um exemplo de problema da satisfação de restrições.
+
+Foi mostrado que é uma possibilidade de estruturar um *CSP* é utilizando grafo (*constraint graph*), onde os vértices representam as variáveis e as arestas representam restrições de domínio entre as variáveis. 
+
+Além disso, foram apresentados conceitos de consistência de variável (*node consistency* e *arc consistency*) e classificações de restrições (*hard constraints*, *soft constraints*, *unary constraint*, *binary constraint*).
+O algoritmo de busca que é geralmente utilizado quando se trata de problemas de satisfação de restrições é o *backtracking search* que, de forma otimizada, utiliza outro algoritmo chamado *AC3* para manter consistência de arco (*arc consistency*) ao longo do processo.
+
+### Project
+O site da *Harvard University* disponibilizou um projeto que aborda o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture 03 - Optimization* desse repositório. Esse projeto é uma implementação do algoritmo *backtracking search* para solucionar jogos de palavras cruzadas (palavras cruzadas é um problema da categoria de satisfação de restrições).
