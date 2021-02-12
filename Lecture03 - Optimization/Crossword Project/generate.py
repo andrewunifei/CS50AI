@@ -124,6 +124,8 @@ class CrosswordCreator():
         overlap = self.crossword.overlaps[x, y]
         new_domain = set()
 
+        # Se x é vizinho de y, faz uma iteração e armazena todas as palavras
+        # do domínio de x que satisfazem a condição em um set
         if overlap:
             x_letter, y_letter = overlap
             for word_x in self.domains[x].copy():
@@ -131,7 +133,8 @@ class CrosswordCreator():
                     if word_x[x_letter] == word_y[y_letter]:
                         new_domain.add(word_x)
                         revised = True
-        
+            
+            # atribui o novo conjunto ao domínio de x 
             self.domains[x] = new_domain
         
         return revised
@@ -151,6 +154,7 @@ class CrosswordCreator():
             overlaps = self.crossword.overlaps
 
             for key in overlaps:
+                # Coloca na fila todos os pares de variáveis que são vizinhos
                 if overlaps[key] != None: q.put(key)
         else:
             for value in arcs:
@@ -234,7 +238,7 @@ class CrosswordCreator():
                 if word in word_mapped:
                     word_mapped[word] += 1
 
-        # Retorna uma lista com os valores de dominio com o menor poder de restrição até os com maior poder de restrição
+        # Retorna uma lista com os valores de dominio de var de forma crescente em função do menor poder de restrição
         return list(dict((sorted(word_mapped.items(), key=lambda item: item[1]))))
                 
         
@@ -255,17 +259,20 @@ class CrosswordCreator():
                 available_vars_domain[variable] = len(self.domains[variable])
                 available_vars_neighbors[variable] = len(self.crossword.neighbors(variable))
 
+        # Ordena as variáveis de forma crescente em função do tamanho de seus domínios
         ordered_dict_domain = dict((sorted(available_vars_domain.items(), key=lambda item: item[1])))
+        # Variável com o menor domínio
         smallest_domain = next(iter(ordered_dict_domain))
 
+        # Se existe mais de uma variável com o menor valor de domínio, as coloca em um dicionário
         for key in ordered_dict_domain:
             if ordered_dict_domain[key] == ordered_dict_domain[smallest_domain]:
                 selected_vars[key] = available_vars_neighbors[key]
             else:
                 break
-
+        
         if len(selected_vars) > 1:
-            # Retorna variável com maior número de vizinhos
+            # Se existem mais de uma variáel com o menor valor de domínio, retorna a variável com maior número de vizinhos
             return next(iter(dict((sorted(selected_vars.items(), key=lambda item: item[1], reverse=True)))))
         
         return smallest_domain
