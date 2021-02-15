@@ -1,3 +1,10 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 15/02/2021
+#
+# Os conteúdos das funções get_q_value, update_q_value, best_future_value e choose_reward
+# foram implementados por mim
+
 import math
 import random
 import time
