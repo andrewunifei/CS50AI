@@ -196,7 +196,7 @@ Aprendizagem por reforço consiste na experiência adquirida. Será dado a um ag
 
 1. *Markov Decision Process*
 
-    * Modelo para tomada de decições, representa estados, ações e recompensas
+    * Modelo para tomada de decisões, representa estados, ações e recompensas
     * Conjunto de estados S
     * Conjunto de ações ACTIONS(s)
     * Modelo de transição P(s' | s, a)
