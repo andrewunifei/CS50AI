@@ -180,32 +180,54 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
 #### Reinforcement Learning
 Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
 
+<p align="center"><img src="https://www.kdnuggets.com/images/reinforcement-learning-fig1-700.jpg"></p>
+
 1. *Markov Decision Process*
+
     * Modelo para tomada de decições, representa estados, ações e recompensas
-    * Conjunto de estado S
+    * Conjunto de estados S
     * Conjunto de ações ACTIONS(s)
-    * Modelo de transição P(s'|s, a)
+    * Modelo de transição P(s' | s, a)
     * Função recompensa R(s, a, s')
     
 2. *Q-Learning*
+
     * Método para aprender uma função Q(s, a), que estima o valor de realizar a ação **a** no estado **s**
     * Começa com Q(s, a) = 0 ∀ s, a
     * Quando se toma uma ação e recebe uma recompensa
-        - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas
-        - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados
+    
+        - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas.
+        - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
+        
     * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se Q(s, a) da seguinte forma:
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
     * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
-    * *Greedy decision-making*
-    * *Explore vs. exploit*
-    * *ε-greedy*
-    * *Function approximation*
     
+    * *Greedy decision-making*
+    
+        Quando no estado **s**, escolher a ação **a** com maior Q(s, a)  
+        
+    * *Explore vs. exploit*
+    
+        - *Exploitation* basicamente é o método de decisão onde a IA utiliza o conhecimento que já têm.
+        - *Exploration* é sobre explorar outras ações fora do escopo do conhecimento, porque talvez, mesmo sem saber sobre essas ações, uma delas pode levar a recompensas mais rapidamente ou maior quantidade de recompensas no futuro.
+        
+    * *ε-greedy*
+    
+        - Com probabilidade ε, escolhe um decisão aleatória.
+        - Com probabilidade 1 - ε, escolhe a decisão melhor estimada.
+        
+    * *Function approximation*
+        
+        No contexto de aprendizagem de máquina, aproxima Q(s, a), geralmente com uma função que combina várias características, ao invés de armazenar um valor para cada par de estado-ação.
+        
 #### Unsupervised Learning
 Dado uma entrada sem qualquer rótulo ou *feedback* adicional, aprende padrões.
 
 1. *Clustering*
-    * Organizar um conjunto de objetos em grupos de forma que objetos similares tendem a ser do mesmo grupo
+
+    Organizar um conjunto de objetos em grupos de forma que objetos similares tendem a ser do mesmo grupo.
+    
     * Algumas aplicações
         - Pesquisa genética
         - Segmentação de imagens
@@ -213,3 +235,5 @@ Dado uma entrada sem qualquer rótulo ou *feedback* adicional, aprende padrões.
         - Geração de imagens medicinais
         - Análise de redes sociais
     * *K-means clustering*
+    
+        Algoritmo para agrupar dados baseado em na prático de repetidamente associar unidades de observações a grupos e atualizar os centros desses grupos (*cluster's centers*).
