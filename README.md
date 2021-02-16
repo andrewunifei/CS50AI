@@ -2,7 +2,11 @@
 Repositório para manter as atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
 
 ### Dependencies 
-Alguns projetos necessitam da dependência [pygame](https://github.com/pygame/). Para instalação, digite a seguinte linha de código na pasta dos arquivos do projeto que necessita da dependência: `pip3 install -r requirements.txt`
+#### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
+[pygame](https://github.com/pygame/)
+
+#### Shopping Project (Lecture 04)
+[scikit-learn](https://github.com/scikit-learn/)
 
 ## Lecture 00 - Search
 Nessa aula foram apresentados conceitos introdutórios de Inteligência Artificial no campo da busca. "Busca" (*search*) no contexto de IA é o problema de tentar descobrir o que fazer quando se existe um tipo de situação em que o computador se encontra e algum tipo de ambiente em que um **agente** está inserido. E se almeja que, de alguma forma, esse agente seja capaz de encontrar uma solução para o problema. Esse problema pode aparecer em diversos formatos. Exemplos são: Jogo do 15 e tentar achar o caminho certo através de um labirinto ou dois lugares geográficos.
