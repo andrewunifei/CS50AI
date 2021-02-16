@@ -1,6 +1,31 @@
 # CS50AI
 Repositório para manter as atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
 
+# Table of Contents
+- [Dependencies](#dependencies)
+- [Lecture 00 - Search](#lecture-00---search)
+    * [Projects](#projects)
+- [Lecture 01 - Knowledge](#lecture-01---knowledge)
+    * [Projects](#projects)
+- [Lecture 02 - Uncertainty](#lecture-02---uncertainty)
+    * [Projects](#projects)
+- [Lecture 03 - Optimization](#lecture-03---optimization)
+    * [Local Search](local-search)
+    * [Linear Programming](linear-programming)
+    * [Constraint Satisfaction Problems (CSP)](constraint-satisfaction-problems-(CSP))
+    * [Projects](#projects)
+- [Lecture 04 - Learning](lecture-04---learning)
+    * [Supervised Learning](supervised-Learning)
+        + [Classificação](classificação)
+        + [Regressão Linear](regressão-linear)
+        + [Evaluation Hypotheses](evaluation-hypotheses)
+    * [Reinforcement Learning](reinforcement-learning)
+        + [Markov Decision Process](markov-decision-process)
+        + [Q-Learning](q-Learning)
+    * [Unsupervised Learning](unsupervised-learning)
+        + [Clustering](clustering)
+    * [Projects](#projects)
+
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
 [pygame](https://github.com/pygame/)
@@ -15,7 +40,7 @@ Também foram abordados e definidos algumas terminologias relacionadas a esse ca
 
 Além disso, foram apresentados definições e implementações de algoritmos de busca, são eles: *depth-first search*, *breadth-first search*, *uninformed search*, *informed search*, *greedy best-first search* e *A\* search*. Também foi explorado a noção de *adversarial search* e alguns algoritmos relacionados a esse tipo de cenário, como: *minimax*, *alpha-beta pruning* e *depth-limited minimax*.
 
-### Projects
+### Projects 
 O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 00 - Search* desse repositório.
 
 O primeiro projeto é uma implementação do jogo *Six Degrees of Kevin Bacon* utilizando *breadth-first search* para realizar as buscas.
