@@ -105,6 +105,15 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
         Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
         
          </details>
+         
+    * *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
+        <details>
+        <summary>Expandir definição</summary>
+        
+        <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
+        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.
+  
+        </details>     
     
 2. Regressão Linear (*linear regression*)
     <details>
@@ -127,15 +136,6 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
         Dado unidade de observação (X, y), atualiza cada peso de acordo com:
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
        
-        </details>
-        
-    * *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
-        <details>
-        <summary>Expandir definição</summary>
-        
-        <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
-        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.
-  
         </details>
         
     * *Support vector machine*
