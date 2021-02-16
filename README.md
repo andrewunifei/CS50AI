@@ -123,11 +123,19 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
     Weight vector W: (w0, w1, w2)
     Input vector X: (1, x1, x2)
     W * X : w0 + w1x1 + w2x2
-    hW(X) = 1 se W * X >= 0
-            0 senão
+    hW(X) = 1 if W * X >= 0
+            0 otherwise
     ```
     
     </details>
+    
+    * *Regression*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
+  
+        </details>
     
     * *Perceptron learning rule*
         <details>
@@ -154,23 +162,88 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
   
         </details>
         
-    * *Regression*
+3. *Evaluation Hypotheses*
+    * *Loss function*
         <details>
         <summary>Expandir definição</summary>
   
-        Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
+        Função que expressa o quão pobre é a performance de uma hipótese.
   
         </details>
         
-3. *Evaluation Hypotheses*
-    * *Loss function*
     * *0-1 loss function*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        ```
+        L(actual, predicted) =
+            0 if actual = predicted
+            1 otherwise
+        ```
+ 
+        </details>
+        
     * *L1 loss function*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        ```
+        L(actual, predicted) - |actual - predicted|
+        ```
+        Essa situação mostra o quão distante estão o valor atual e o previsto. Adequado para regressão. Se existem diversos ponto discrepantes e não é necessário modelá-los, então a função L1 é adequada.
+  
+        </details>
+        
     * *L2 loss function*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        ```
+        L(actual, predicted) - (actual - predicted)^2
+        ```
+        Se é necessário minimizar o erro em muitos pontos discrepantes, então a função L2 é adequada.
+            
+        </details>
+        
     * *Overfitting*
+         <details>
+        <summary>Expandir definição</summary>
+  
+        Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. ENtão é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
+        
+        <p align="center"><img src="https://miro.medium.com/max/1125/1*_7OPgojau8hkiPUiHoGK_w.png"></p>
+        
+        Uma solução para esse problema é penalizar a complexidade da hipótese. Dessa forma, temos,
+        
+        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613484489.png"></p>
+        
+        Se λ é grande, então existe uma penalização maior da complexidade da hipótese, caso contrário, existe uma penalização menor.
+            
+        </details>
+        
     * *Regularization*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Penalizar hipóteses que são complexas para favorecer hipóteses mais simples e generalizadas. 
+            
+        </details>
+        
     * *Holdout cross-validation*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Dividir os dados em um conjunto e treinamento e um conjunto de teste, de forma que o aprendizado da máquina aconteça com o conjuntos de treinamento e a avaliação no conjunto de teste. Uma das desvantagens dessa abordagem é que existe uma grande quantidade de dados que não estão sendo usados para treinamento, consequentemente não é possível obter um modelo potencialmente melhor.
+            
+        </details>
+        
     * *K-fold cross-validation*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Dividir os dados em k conjuntos e experimentar k vezes, usando cada conjunto como um conjunto de teste apenas uma vez, e usando os dados restantes como conjuntos de treinamento. 
+            
+        </details>
  
 #### Reinforcement Learning
 Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
