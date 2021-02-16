@@ -211,7 +211,7 @@ Aprendizagem por reforço consiste na experiência adquirida. Será dado a um ag
         - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas.
         - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
         
-    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o vlaor de Q(s, a) da seguinte forma:
+    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o valor de Q(s, a) da seguinte forma:
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
     * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
     
