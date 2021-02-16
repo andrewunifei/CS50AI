@@ -199,7 +199,7 @@ Aprendizagem por reforço consiste na experiência adquirida. Será dado a um ag
         - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas.
         - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
         
-    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se Q(s, a) da seguinte forma:
+    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o vlaor de Q(s, a) da seguinte forma:
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
     * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
     
@@ -237,3 +237,10 @@ Dado uma entrada sem qualquer rótulo ou *feedback* adicional, aprende padrões.
     * *K-means clustering*
     
         Algoritmo para agrupar dados baseado em na prático de repetidamente associar unidades de observações a grupos e atualizar os centros desses grupos (*cluster's centers*).
+
+### Projects
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 04 - Learning* desse repositório.
+
+O primeiro projeto consiste em utilizar as funções da biblioteca **scikit-learn** a fim de implementar o método de ***K-nearest-neighbor classification*** presente na aprendizagem supervisionada. O cenário em questão é um site de e-commerce, onde os dados de entrada consistem em um conjunto de informações dos usuários em uma visita ao site e os rótulos (*labels*) são um indicativo (True ou False) de que se, na visita, os usuários finalizaram uma compra ou não. Dado isso, o objetivo do algortimo é, após o treinamento (nesse caso, com 60% dos dados), realizar inferências em realção a intenção dos usuários.
+
+O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método de ***Q-Learning***, implementando do zero fazendo uso da equação para obtenção do valor ótimo de Q(s, a) descrita na seção anterior. A IA é treinada dez mil vezes jogando contra si própria antes de jogar contra um humano.
