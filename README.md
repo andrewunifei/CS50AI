@@ -83,131 +83,77 @@ A aula 04 iniciou a introdução do conceito de **Machine Learning**. O que cara
 Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*labels*), a máquina aprende uma função para mapear entradas à saídas. As tarefas (*tasks*), algoritmos e conceitos relacionados a esse método explorados foram:
 
 1. Classificação (*classification*)
-    <details>
-    <summary>Expandir definição</summary>
-  
+
     Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mepeia uma unidade de observação a uma categoria discreta.
-  
-    </details>
     
     * *Nearest-neighbor classification*
-        <details>
-        <summary>Expandir definição</summary>
-  
+    
         Algoritmo que, dado uma entrada, escolhe a classe da unidade de observação mais próxima à entrada.
-       
-        </details>
       
     * *K-nearest-neighbor classification*
-         <details>
-         <summary>Expandir definição</summary>
-  
+    
         Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
-        
-         </details>
          
     * *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
-        <details>
-        <summary>Expandir definição</summary>
-        
+    
         <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
-        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.
-  
-        </details>     
+        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.   
     
 2. Regressão Linear (*linear regression*)
-    <details>
-    <summary>Expandir definição</summary>
-  
+
     ```
-    Weight vector W: (w0, w1, w2)
-    Input vector X: (1, x1, x2)
-    W * X : w0 + w1x1 + w2x2
-    hW(X) = 1 if W * X >= 0
-            0 otherwise
+        Weight vector W: (w0, w1, w2)
+        Input vector X: (1, x1, x2)
+        W * X : w0 + w1x1 + w2x2
+        hW(X) = 1 if W * X >= 0
+                0 otherwise
     ```
-    
-    </details>
     
     * *Regression*
-        <details>
-        <summary>Expandir definição</summary>
-  
-        Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
-  
-        </details>
+ 
+      Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
     
     * *Perceptron learning rule*
-        <details>
-        <summary>Expandir definição</summary>
   
         Dado unidade de observação (X, y), atualiza cada peso de acordo com:
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
-       
-        </details>
         
     * *Support vector machine*
-        <details>
-        <summary>Expandir definição</summary>
   
         São construídos para tentar encontrar o *maximum margin separator*.
   
-        </details>
-  
     * *Maximum margin separator*
-        <details>
-        <summary>Expandir definição</summary>
   
         Limite que maximiza a distância entre qualquer uma das unidades de observação.
-  
-        </details>
         
 3. *Evaluation Hypotheses*
     * *Loss function*
-        <details>
-        <summary>Expandir definição</summary>
   
         Função que expressa o quão pobre é a performance de uma hipótese.
-  
-        </details>
         
     * *0-1 loss function*
-        <details>
-        <summary>Expandir definição</summary>
-  
+ 
         ```
         L(actual, predicted) =
             0 if actual = predicted
             1 otherwise
         ```
- 
-        </details>
         
     * *L1 loss function*
-        <details>
-        <summary>Expandir definição</summary>
   
         ```
         L(actual, predicted) - |actual - predicted|
         ```
         Essa situação mostra o quão distante estão o valor atual e o previsto. Adequado para regressão. Se existem diversos ponto discrepantes e não é necessário modelá-los, então a função L1 é adequada.
-  
-        </details>
         
     * *L2 loss function*
-        <details>
-        <summary>Expandir definição</summary>
   
         ```
         L(actual, predicted) - (actual - predicted)^2
         ```
         Se é necessário minimizar o erro em muitos pontos discrepantes, então a função L2 é adequada.
-            
-        </details>
         
     * *Overfitting*
-         <details>
-        <summary>Expandir definição</summary>
   
         Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. ENtão é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
         
@@ -218,32 +164,18 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
         <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613484489.png"></p>
         
         Se λ é grande, então existe uma penalização maior da complexidade da hipótese, caso contrário, existe uma penalização menor.
-            
-        </details>
         
     * *Regularization*
-        <details>
-        <summary>Expandir definição</summary>
   
         Penalizar hipóteses que são complexas para favorecer hipóteses mais simples e generalizadas. 
             
-        </details>
-        
     * *Holdout cross-validation*
-        <details>
-        <summary>Expandir definição</summary>
   
         Dividir os dados em um conjunto e treinamento e um conjunto de teste, de forma que o aprendizado da máquina aconteça com o conjuntos de treinamento e a avaliação no conjunto de teste. Uma das desvantagens dessa abordagem é que existe uma grande quantidade de dados que não estão sendo usados para treinamento, consequentemente não é possível obter um modelo potencialmente melhor.
-            
-        </details>
         
     * *K-fold cross-validation*
-        <details>
-        <summary>Expandir definição</summary>
   
         Dividir os dados em k conjuntos e experimentar k vezes, usando cada conjunto como um conjunto de teste apenas uma vez, e usando os dados restantes como conjuntos de treinamento. 
-            
-        </details>
  
 #### Reinforcement Learning
 Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
