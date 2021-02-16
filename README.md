@@ -50,34 +50,22 @@ Ainda nesse contexto, foi abordado o conceito de *state-space landscape*, que re
 Programação linear geralmente aparece no contexto de resolução para alguma função matemática. É uma família de problemas que apresenta uma situação do seguinte tipo:
 
 Minimizar uma função de custo
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613154101.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613154101.png"></p>
 Com limitações da forma
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613154145.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613154145.png"></p>
 E com restrições para cada variável do tipo
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613134174.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613134174.png"></p>
 Existem vários tipos de algoritmos para solucionar problemas dessa categoria, dois exemplos são *simplex* e *interior-point*.
 
 ### Constraint Satisfaction Problems (CSP)
 A ideia básica dos problemas da satisfação de restrições é uma situação onde se tem um número de variáveis que terão algum valor atribuido. Então, é necessário descobrir quais valores atribuir para essas variáveis, porém essas variáveis estão sujeitas a restrições particulares que irão limitar quais valores podem ser atribuidos a elas. Essa noção pode ser expressa da seguinte maneira:
 
 Conjunto de variáveis
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613135599.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135599.png"></p>
 Conjunto de domínios para cada variável
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613135591.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135591.png"></p>
 E conjunto de restrições
-<br><br>
-<img src="http://www.sciweavers.org/download/Tex2Img_1613135659.png">
-<br><br>
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135659.png"></p>
 Sudoku é um exemplo de problema da satisfação de restrições.
 
 Foi mostrado que uma possibilidade de estruturar um *CSP* é utilizando grafo (*constraint graph*), onde os vértices representam as variáveis e as arestas representam restrições de domínio entre as variáveis. 
@@ -87,3 +75,136 @@ O algoritmo de busca que é geralmente utilizado quando se trata de problemas de
 
 ### Projects
 O site da *Harvard University* disponibilizou um projeto que aborda o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture 03 - Optimization* desse repositório. Esse projeto é uma implementação do algoritmo *backtracking search* para solucionar jogos de palavras cruzadas (palavras cruzadas é um problema da categoria de satisfação de restrições).
+
+## Lecture 04 - Learning
+A aula 04 iniciou a introdução do conceito de **Machine Learning**. O que caracteriza o conceito de *Machine Learning* é a ideia de **não** fornecer instruções explícitas ao computador em como desempenhar uma tarefa, mas apenas acesso a informações no formato de dados ou padrões, e deixar o computador descobrir por conta própria os padrões e entender os dados a fim de realizar a tarefa. Essa aula teve como objetivo explorar os algoritmos mais fundamentais relacionados a esse campo da IA. Foram apresentadas três métodos de aprendizagem de máquina. 
+
+#### Supervised Learning
+Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*labels*), a máquina aprende uma função para mapear entradas à saídas. As tarefas (*tasks*), algoritmos e conceitos relacionados a esse método explorados foram:
+
+1. Classificação (*classification*)
+    <details>
+    <summary>Expandir definição</summary>
+  
+    Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mepeia uma unidade de observação a uma categoria discreta.
+  
+    </details>
+    
+    * *Nearest-neighbor classification*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Algoritmo que, dado uma entrada, escolhe a classe da unidade de observação mais próxima à entrada.
+       
+        </details>
+      
+    * *K-nearest-neighbor classification*
+         <details>
+         <summary>Expandir definição</summary>
+  
+        Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
+        
+         </details>
+    
+2. Regressão Linear (*linear regression*)
+    <details>
+    <summary>Expandir definição</summary>
+  
+    ```
+    Weight vector W: (w0, w1, w2)
+    Input vector X: (1, x1, x2)
+    W * X : w0 + w1x1 + w2x2
+    hW(X) = 1 se W * X >= 0
+            0 senão
+    ```
+    
+    </details>
+    
+    * *Perceptron learning rule*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Dado unidade de observação (X, y), atualiza cada peso de acordo com:
+        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
+       
+        </details>
+        
+    * *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
+        <details>
+        <summary>Expandir definição</summary>
+        
+        <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
+        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.
+  
+        </details>
+        
+    * *Support vector machine*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        São construídos para tentar encontrar o *maximum margin separator*.
+  
+        </details>
+  
+    * *Maximum margin separator*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Limite que maximiza a distância entre qualquer uma das unidades de observação.
+  
+        </details>
+        
+    * *Regression*
+        <details>
+        <summary>Expandir definição</summary>
+  
+        Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
+  
+        </details>
+        
+3. *Evaluation Hypotheses*
+    * *Loss function*
+    * *0-1 loss function*
+    * *L1 loss function*
+    * *L2 loss function*
+    * *Overfitting*
+    * *Regularization*
+    * *Holdout cross-validation*
+    * *K-fold cross-validation*
+ 
+#### Reinforcement Learning
+Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
+
+1. *Markov Decision Process*
+    * Modelo para tomada de decições, representa estados, ações e recompensas
+    * Conjunto de estado S
+    * Conjunto de ações ACTIONS(s)
+    * Modelo de transição P(s'|s, a)
+    * Função recompensa R(s, a, s')
+    
+2. *Q-Learning*
+    * Método para aprender uma função Q(s, a), que estima o valor de realizar a ação **a** no estado **s**
+    * Começa com Q(s, a) = 0 ∀ s, a
+    * Quando se toma uma ação e recebe uma recompensa
+        - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas
+        - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados
+    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se Q(s, a) da seguinte forma:
+        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
+    * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
+    * *Greedy decision-making*
+    * *Explore vs. exploit*
+    * *ε-greedy*
+    * *Function approximation*
+    
+#### Unsupervised Learning
+Dado uma entrada sem qualquer rótulo ou *feedback* adicional, aprende padrões.
+
+1. *Clustering*
+    * Organizar um conjunto de objetos em grupos de forma que objetos similares tendem a ser do mesmo grupo
+    * Algumas aplicações
+        - Pesquisa genética
+        - Segmentação de imagens
+        - Pesquisa de mercado
+        - Geração de imagens medicinais
+        - Análise de redes sociais
+    * *K-means clustering*
