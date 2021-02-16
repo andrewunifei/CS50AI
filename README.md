@@ -12,7 +12,11 @@ Também foram abordados e definidos algumas terminologias relacionadas a esse ca
 Além disso, foram apresentados definições e implementações de algoritmos de busca, são eles: *depth-first search*, *breadth-first search*, *uninformed search*, *informed search*, *greedy best-first search* e *A\* search*. Também foi explorado a noção de *adversarial search* e alguns algoritmos relacionados a esse tipo de cenário, como: *minimax*, *alpha-beta pruning* e *depth-limited minimax*.
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 00 - Search* desse repositório. O primeiro projeto é uma implementação do jogo *Six Degrees of Kevin Bacon* utilizando *breadth-first search* para realizar as buscas. O segundo é uma implementação do jogo da velha utilizando *minimax* como inteligência artificial adversária.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 00 - Search* desse repositório.
+
+O primeiro projeto é uma implementação do jogo *Six Degrees of Kevin Bacon* utilizando *breadth-first search* para realizar as buscas.
+
+O segundo é uma implementação do jogo da velha utilizando *minimax* como inteligência artificial adversária.
 
 ## Lecture 01 - Knowledge
 Nessa aula foi apresentado a noção de conhecimento (*knowledge*) no contexto de IA. O tipo de inteligência artificial que opera com uma base de conhecimento é a *knowledge-based agent*. Porém, o foco principal da aula foi a noção de Lógica Proposicional (*Propositional Logic*), um método de lógica usado, nesse cenário, para representar o conhecimento de uma máquina e a sua capacidade de fazer inferências a partir desse conhecimento.
@@ -24,7 +28,11 @@ Além disso, duas formas de derivar as conclusões lógicas a partir da ideia de
 Por fim, foi apresentado superficialmente o método de Lógica de Primeira Ordem (*First-Order Logic*). Nesse método, existem dois tipos de símbolos: *constant symbols* que representam objetos e *predicate symbols* que representam relações ou funções. Essas funções recebem um argumento e o avalia, por exemplo, como verdadeiro ou falso. Todos os conectivos lógicos da Lógica Proposicional são válidos nesse método. A Lógica de Primeira Ordem também é composta pelo conceito de quantificadores (*quantifiers*). Existe dois tipos principais de quantificação, a quantificação universal (*universal quantifiers*) e a quantificação existencial (*existential quantification*).
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 01 - Knowledge* desse repositório. O primeiro projeto é uma implementação do puzzle *Knights and Knaves* utilizando uma biblioteca de Lógica Proposicional disponibilizada. O segundo é uma implementação do jogo campo minado, uma IA foi implementada para tomar a decisão mais correta possível a partir de uma base de conhecimento e operações lógicas.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 01 - Knowledge* desse repositório.
+
+O primeiro projeto é uma implementação do puzzle *Knights and Knaves* utilizando uma biblioteca de Lógica Proposicional disponibilizada.
+
+O segundo é uma implementação do jogo campo minado, uma IA foi implementada para tomar a decisão mais correta possível a partir de uma base de conhecimento e operações lógicas.
 
 ## Lecture 02 - Uncertainty
 Nessa aula foi apresentado a noção de incerteza (*uncertainty*) no contexto de IA. Quando se trata de Inteligência Artificial, geralmente existe incerteza sobre as informações que o algoritmo está lidando. Em situações como essa, inferências são feitas com base em **probabilidade**. Por exemplo, no contexto de um robô que tem sensores e está explorando um ambiente, talvez ele não saiba exatamente onde está ou o que está ao redor, mas ele tem acesso a alguns dados que o permitem realizar inferências com alguma probabilidade.
@@ -36,7 +44,11 @@ Trazendo essas noções para o contexto computacional, a estrutura de dados rede
 Para concluir, foi abordado a noção de probabilidades variando em função do tempo. A fim de modelar essa ideia, foram apresentados os conceitos: suposição Markov (*Markov assumption*), cadeia de Markov (*Markov chain*), modelo oculto de Markov (*hidden Markov model*) e a suposição Markov sobre sensores (*sensor Markov assumption*).
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 02 - Uncertainty* desse repositório. O primeiro projeto é uma implementação de uma versão do método de ranqueamento de páginas usado pelo Google denomidado "*PageRank*" que toma como parâmetro um corpus de páginas e ranquea as probabilidades de um internauta acessar cada página em função das ligações que elas têm entre si. O segundo projeto é uma implementação de um método para calcular a probabilidade da prole de um casal herdar o gene GJB2 sob condição de mutação (a mutação desse gene é responsável por causar problemas de audição). O cálculo foi realizado a partir da dstribuição de probabilidade conjunta das variáveis envolvidas no problema.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 02 - Uncertainty* desse repositório.
+
+O primeiro projeto é uma implementação de uma versão do método de ranqueamento de páginas usado pelo Google denomidado "*PageRank*" que toma como parâmetro um corpus de páginas e ranquea as probabilidades de um internauta acessar cada página em função das ligações que elas têm entre si.
+
+O segundo projeto é uma implementação de um método para calcular a probabilidade da prole de um casal herdar o gene GJB2 sob condição de mutação (a mutação desse gene é responsável por causar problemas de audição). O cálculo foi realizado a partir da dstribuição de probabilidade conjunta das variáveis envolvidas no problema.
 
 ## Lecture 03 - Optimization
 Nessa aula foi apresentado a noção de otimização (*optimization*) no contexto de IA. Otimização é a escolha da melhor opção dado um conjunto de opções. A fim de explorar essa noção, foram abordadas **três categorias de problemas** que exigem algoritmos específicos para solução.
