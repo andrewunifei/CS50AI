@@ -12,12 +12,12 @@ Repositório para manter as atividades realizadas no curso "CS50AI - Introductio
 - [Lecture 03 - Optimization](#lecture-03---optimization)
     * [Local Search](#local-search)
     * [Linear Programming](#linear-programming)
-    * [Constraint Satisfaction Problems (CSP)](#constraint-satisfaction-problems-(CSP))
+    * [Constraint Satisfaction Problems](#constraint-satisfaction-problems)
     * [Projects](#projects-3)
 - [Lecture 04 - Learning](#lecture-04---learning)
-    * [Supervised Learning](#supervised-Learning)
-        + [Classificação](#classificação)
-        + [Regressão Linear](#regressão-linear)
+    * [Supervised Learning](#supervised-learning)
+        + [Classification](#classification)
+        + [Linear Regression](#linear-regression)
         + [Evaluation Hypotheses](#evaluation-hypotheses)
     * [Reinforcement Learning](#reinforcement-learning)
         + [Markov Decision Process](#markov-decision-process)
@@ -98,7 +98,7 @@ E com restrições para cada variável do tipo
 <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613134174.png"></p>
 Existem vários tipos de algoritmos para solucionar problemas dessa categoria, dois exemplos são *simplex* e *interior-point*.
 
-### Constraint Satisfaction Problems (CSP)
+### Constraint Satisfaction Problems
 A ideia básica dos problemas da satisfação de restrições é uma situação onde se tem um número de variáveis que terão algum valor atribuido. Então, é necessário descobrir quais valores atribuir para essas variáveis, porém essas variáveis estão sujeitas a restrições particulares que irão limitar quais valores podem ser atribuidos a elas. Essa noção pode ser expressa da seguinte maneira:
 
 Conjunto de variáveis
@@ -120,168 +120,167 @@ O site da *Harvard University* disponibilizou um projeto que aborda o tema explo
 ## Lecture 04 - Learning
 A aula 04 iniciou a introdução do conceito de **Machine Learning**. O que caracteriza o conceito de *Machine Learning* é a ideia de **não** fornecer instruções explícitas ao computador em como desempenhar uma tarefa, mas apenas acesso a informações no formato de dados ou padrões, e deixar o computador descobrir por conta própria os padrões e entender os dados a fim de realizar a tarefa. Essa aula teve como objetivo explorar os algoritmos mais fundamentais relacionados a esse campo da IA. Foram apresentadas três métodos de aprendizagem de máquina. 
 
-#### Supervised Learning
+### Supervised Learning
 Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*labels*), a máquina aprende uma função para mapear entradas à saídas. As tarefas (*tasks*), algoritmos e conceitos relacionados a esse método explorados foram:
 
-1. Classificação (*classification*)
-
-    Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mepeia uma unidade de observação a uma categoria discreta.
+#### Classification
+Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mepeia uma unidade de observação a uma categoria discreta.
     
-    * *Nearest-neighbor classification*
+* *Nearest-neighbor classification*
     
-        Algoritmo que, dado uma entrada, escolhe a classe da unidade de observação mais próxima à entrada.
+     Algoritmo que, dado uma entrada, escolhe a classe da unidade de observação mais próxima à entrada.
       
-    * *K-nearest-neighbor classification*
+* *K-nearest-neighbor classification*
     
-        Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
+     Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
          
-    * *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
+* *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
     
-        <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
-        A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.   
+     <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
+     A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.   
     
-2. Regressão Linear (*linear regression*)
+#### Linear Regression
 
-    ```
-        Weight vector W: (w0, w1, w2)
-        Input vector X: (1, x1, x2)
-        W * X : w0 + w1x1 + w2x2
-        hW(X) = 1 if W * X >= 0
-                0 otherwise
-    ```
+```
+Weight vector W: (w0, w1, w2)
+Input vector X: (1, x1, x2)
+W * X : w0 + w1x1 + w2x2
+hW(X) = 1 if W * X >= 0
+        0 otherwise
+```
     
-    * *Regression*
+* *Regression*
  
-      Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
+     Tarefa de aprendizagem supervisionada que consiste em aprender uma função que mapeia uma unidade de observação de entrada a um valor contínuo - um número real.
     
-    * *Perceptron learning rule*
+* *Perceptron learning rule*
   
-        Dado unidade de observação (X, y), atualiza cada peso de acordo com:
-        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
+     Dado unidade de observação (X, y), atualiza cada peso de acordo com:
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
         
-    * *Support vector machine*
+* *Support vector machine*
   
-        São construídos para tentar encontrar o *maximum margin separator*.
+     São construídos para tentar encontrar o *maximum margin separator*.
   
-    * *Maximum margin separator*
+* *Maximum margin separator*
   
-        Limite que maximiza a distância entre qualquer uma das unidades de observação.
+     Limite que maximiza a distância entre qualquer uma das unidades de observação.
         
-3. *Evaluation Hypotheses*
-    * *Loss function*
+#### Evaluation Hypotheses
+* *Loss function*
   
-        Função que expressa o quão pobre é a performance de uma hipótese.
+     Função que expressa o quão pobre é a performance de uma hipótese.
         
-    * *0-1 loss function*
+* *0-1 loss function*
  
-        ```
-        L(actual, predicted) =
-            0 if actual = predicted
-            1 otherwise
-        ```
+     ```
+     L(actual, predicted) =
+          0 if actual = predicted
+          1 otherwise
+     ```
         
-    * *L1 loss function*
+* *L1 loss function*
   
-        ```
-        L(actual, predicted) = |actual - predicted|
-        ```
-        Essa situação mostra o quão distante estão o valor atual e o previsto. Adequado para regressão. Se existem diversos ponto discrepantes e não é necessário modelá-los, então a função L1 é adequada.
+     ```
+     L(actual, predicted) = |actual - predicted|
+     ```
+
+     Essa situação mostra o quão distante estão o valor atual e o previsto. Adequado para regressão. Se existem diversos ponto discrepantes e não é necessário modelá-los, então a função L1 é adequada.
         
-    * *L2 loss function*
-  
-        ```
-        L(actual, predicted) = (actual - predicted)²
-        ```
-        Se é necessário minimizar o erro em muitos pontos discrepantes, então a função L2 é adequada.
+* *L2 loss function*
+
+     ```
+     L(actual, predicted) = (actual - predicted)²
+     ```
+     Se é necessário minimizar o erro em muitos pontos discrepantes, então a função L2 é adequada.
+     
+* *Overfitting*
+
+     Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. ENtão é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
         
-    * *Overfitting*
-  
-        Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. ENtão é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
+     <p align="center"><img src="https://miro.medium.com/max/1125/1*_7OPgojau8hkiPUiHoGK_w.png"></p>
         
-        <p align="center"><img src="https://miro.medium.com/max/1125/1*_7OPgojau8hkiPUiHoGK_w.png"></p>
+     Uma solução para esse problema é penalizar a complexidade da hipótese. Dessa forma, temos,
         
-        Uma solução para esse problema é penalizar a complexidade da hipótese. Dessa forma, temos,
+     <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613484489.png"></p>
         
-        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613484489.png"></p>
+     Se λ é grande, então existe uma penalização maior da complexidade da hipótese, caso contrário, existe uma penalização menor.
         
-        Se λ é grande, então existe uma penalização maior da complexidade da hipótese, caso contrário, existe uma penalização menor.
-        
-    * *Regularization*
-  
-        Penalizar hipóteses que são complexas para favorecer hipóteses mais simples e generalizadas. 
-            
-    * *Holdout cross-validation*
-  
-        Dividir os dados em um conjunto e treinamento e um conjunto de teste, de forma que o aprendizado da máquina aconteça com o conjuntos de treinamento e a avaliação no conjunto de teste. Uma das desvantagens dessa abordagem é que existe uma grande quantidade de dados que não estão sendo usados para treinamento, consequentemente não é possível obter um modelo potencialmente melhor.
-        
-    * *K-fold cross-validation*
-  
-        Dividir os dados em k conjuntos e experimentar k vezes, usando cada conjunto como um conjunto de teste apenas uma vez, e usando os dados restantes como conjuntos de treinamento. 
+* *Regularization*
+
+     Penalizar hipóteses que são complexas para favorecer hipóteses mais simples e generalizadas. 
+     
+* *Holdout cross-validation*
+
+     Dividir os dados em um conjunto e treinamento e um conjunto de teste, de forma que o aprendizado da máquina aconteça com o conjuntos de treinamento e a avaliação no conjunto de teste. Uma das desvantagens dessa abordagem é que existe uma grande quantidade de dados que não estão sendo usados para treinamento, consequentemente não é possível obter um modelo potencialmente melhor.
+     
+* *K-fold cross-validation*
+
+     Dividir os dados em k conjuntos e experimentar k vezes, usando cada conjunto como um conjunto de teste apenas uma vez, e usando os dados restantes como conjuntos de treinamento. 
  
-#### Reinforcement Learning
+### Reinforcement Learning
 Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
 
 <p align="center"><img src="https://www.kdnuggets.com/images/reinforcement-learning-fig1-700.jpg"></p>
 
-1. *Markov Decision Process*
+#### Markov Decision Process
 
-    * Modelo para tomada de decisões, representa estados, ações e recompensas
-    * Conjunto de estados S
-    * Conjunto de ações ACTIONS(s)
-    * Modelo de transição P(s' | s, a)
-    * Função recompensa R(s, a, s')
+* Modelo para tomada de decisões, representa estados, ações e recompensas
+* Conjunto de estados S
+* Conjunto de ações ACTIONS(s)
+* Modelo de transição P(s' | s, a) 
+* Função recompensa R(s, a, s')
     
-2. *Q-Learning*
+#### Q-Learning
 
-    * Método para aprender uma função Q(s, a), que estima o valor de realizar a ação **a** no estado **s**
-    * Começa com Q(s, a) = 0 ∀ s, a
-    * Quando se toma uma ação e recebe uma recompensa
+* Método para aprender uma função Q(s, a), que estima o valor de realizar a ação **a** no estado **s**
+* Começa com Q(s, a) = 0 ∀ s, a
+* Quando se toma uma ação e recebe uma recompensa
+    - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas.
+    - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
+* Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o valor de Q(s, a) da seguinte forma:
+
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
+
+* Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
+* *Greedy decision-making*
+
+     Quando no estado **s**, escolher a ação **a** com maior Q(s, a) 
+     
+* *Explore vs. exploit*
+
+    - *Exploitation* basicamente é o método de decisão onde a IA utiliza o conhecimento que já têm.
+    - *Exploration* é sobre explorar outras ações fora do escopo do conhecimento, porque talvez, mesmo sem saber sobre essas ações, uma delas pode levar a recompensas mais rapidamente ou maior quantidade de recompensas no futuro.
     
-        - Estima o valor de Q(s, a) baseado na atual recompensa e recompensas futuras esperadas.
-        - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
-        
-    * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o valor de Q(s, a) da seguinte forma:
-        <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
-    * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
+* *ε-greedy*
+
+    - Com probabilidade ε, escolhe um decisão aleatória.
+    - Com probabilidade 1 - ε, escolhe a decisão melhor estimada.
     
-    * *Greedy decision-making*
-    
-        Quando no estado **s**, escolher a ação **a** com maior Q(s, a)  
+* *Function approximation*
         
-    * *Explore vs. exploit*
-    
-        - *Exploitation* basicamente é o método de decisão onde a IA utiliza o conhecimento que já têm.
-        - *Exploration* é sobre explorar outras ações fora do escopo do conhecimento, porque talvez, mesmo sem saber sobre essas ações, uma delas pode levar a recompensas mais rapidamente ou maior quantidade de recompensas no futuro.
+     No contexto de aprendizagem de máquina, aproxima Q(s, a), geralmente com uma função que combina várias características, ao invés de armazenar um valor para cada par de estado-ação.
         
-    * *ε-greedy*
-    
-        - Com probabilidade ε, escolhe um decisão aleatória.
-        - Com probabilidade 1 - ε, escolhe a decisão melhor estimada.
-        
-    * *Function approximation*
-        
-        No contexto de aprendizagem de máquina, aproxima Q(s, a), geralmente com uma função que combina várias características, ao invés de armazenar um valor para cada par de estado-ação.
-        
-#### Unsupervised Learning
+### Unsupervised Learning
 Dado uma entrada sem qualquer rótulo ou *feedback* adicional, aprende padrões.
 
-1. *Clustering*
+#### Clustering
 
-    Organizar um conjunto de objetos em grupos de forma que objetos similares tendem a ser do mesmo grupo.
+Organizar um conjunto de objetos em grupos de forma que objetos similares tendem a ser do mesmo grupo.
     
-    * Algumas aplicações
-        - Pesquisa genética
-        - Segmentação de imagens
-        - Pesquisa de mercado
-        - Geração de imagens medicinais
-        - Análise de redes sociais
-    * *K-means clustering*
+* Algumas aplicações
+    - Pesquisa genética
+    - Segmentação de imagens
+    - Pesquisa de mercado
+    - Geração de imagens medicinais
+    - Análise de redes sociais   
+* *K-means clustering*
     
-        Algoritmo para agrupar dados baseado em na prático de repetidamente associar unidades de observações a grupos e atualizar os centros desses grupos (*cluster's centers*).
+Algoritmo para agrupar dados baseado em na prático de repetidamente associar unidades de observações a grupos e atualizar os centros desses grupos (*cluster's centers*).
 
 ### Projects
 O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 04 - Learning* desse repositório.
 
 O primeiro projeto consiste em utilizar as funções da biblioteca **scikit-learn** a fim de implementar o método de ***K-nearest-neighbor classification*** presente na aprendizagem supervisionada. O cenário em questão é um site de e-commerce, onde os dados de entrada consistem em um conjunto de informações dos usuários em uma visita ao site e os rótulos (*labels*) são um indicativo (True ou False) de que se, na visita, os usuários finalizaram uma compra ou não. Dado isso, o objetivo do algortimo é, após o treinamento (nesse caso, com 60% dos dados), realizar inferências em realção a intenção dos usuários.
 
-O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método de ***Q-Learning***, implementando do zero fazendo uso da equação para obtenção do valor ótimo de Q(s, a) descrita na seção anterior. A IA é treinada dez mil vezes jogando contra si própria antes de jogar contra um humano.
+O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método de ***Q-Learning*** presente na aprendizagem por reforço, implementando do zero fazendo uso da equação para obtenção do valor ótimo de Q(s, a) descrita na seção anterior. A IA é treinada dez mil vezes jogando contra si própria antes de jogar contra um humano.
