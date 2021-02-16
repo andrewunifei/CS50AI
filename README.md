@@ -142,14 +142,14 @@ Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*lab
     * *L1 loss function*
   
         ```
-        L(actual, predicted) - |actual - predicted|
+        L(actual, predicted) = |actual - predicted|
         ```
         Essa situação mostra o quão distante estão o valor atual e o previsto. Adequado para regressão. Se existem diversos ponto discrepantes e não é necessário modelá-los, então a função L1 é adequada.
         
     * *L2 loss function*
   
         ```
-        L(actual, predicted) - (actual - predicted)^2
+        L(actual, predicted) = (actual - predicted)²
         ```
         Se é necessário minimizar o erro em muitos pontos discrepantes, então a função L2 é adequada.
         
