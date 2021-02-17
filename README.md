@@ -1,5 +1,5 @@
 # CS50AI
-Repositório para manter as atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
+Repositório para manter as anotações e atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
 
 # Table of Contents
 - [Dependencies](#dependencies)
