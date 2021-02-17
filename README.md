@@ -134,7 +134,7 @@ Tarefa de aprendizagem supervisionada que consiste em aprender uma função que 
     
      Algoritmo que, dado uma entrada, escolhe a classe mais comum das k unidades de observação mais próximas à entrada. Esse algoritmo é adequado para uma grande variedade de diferentes tipos de problemas de classificação.
          
-* *Hard threshold (step function) and Soft threshold (sigmoid funtion)*
+* *Activation function*
     
      <p align="center"><img src="https://miro.medium.com/max/1278/1*Q55RIBsXLfSdzYOeltcuGw.png" alt="(Falha no carregamento da imagem)"></p>
      A vantagem da função sigmoid, é que ela permite uma saída em número real que potencialmente reflete uma probabilidade de uma unidade de observação pertencer a determinada categoria.   
