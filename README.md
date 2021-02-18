@@ -21,11 +21,11 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Evaluation Hypotheses](#evaluation-hypotheses)
     * [Reinforcement Learning](#reinforcement-learning)
         + [Markov Decision Process](#markov-decision-process)
-        + [Q-Learning](#q-Learning)
+        + [Q-Learning](#q-learning)
     * [Unsupervised Learning](#unsupervised-learning)
         + [Clustering](#clustering)
     * [Projects](#projects-4)
-- [Lecture 05 - Neural Networks](#lecture-05-neural-networks)
+- [Lecture 05 - Neural Networks](#lecture-05---neural-networks)
 
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
@@ -290,6 +290,32 @@ O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método
 ## Lecture 05 - Neural Networks
 Nessa aula foi introduzido o conceito de Rede Neural Artificial (***Artificial Neural Network***). Uma Rede Neural Artificial é um modelo matemático inspirado na rede neural biológica. Tem a característica de modelar uma função matemática a partir de entradas para saídas baseado em sua estrutura e parâmetros. Além disso, ela permite **aprendizagem** dos parâmetros baseado no conjunto de dados em seu domínio. A aula apresentou os conceitos e os tipos de redes neurais mais fundamentais relacionados a esse campo da inteligência artificial.
 
-### Neural Network Structure
-Foi apresentado um tipo de estrutura de rede naural básico a fim de abordar unidades (ou neurônios) de entrada e saída, peso (*weight)* e viés (*bias*) e suas relações.
+### Neural Network Structure and Features
+Foi apresentado uma representação básica de uma estrutura de rede neural a fim de abordar os conceitos de variáveis, unidades (ou neurônios ou nós) de entrada e saída, peso (*weight)*, viés (*bias*) e suas relações.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108361155-e1c74000-71d0-11eb-83a2-108ca262832e.png"></p>
+
+Onde a primeira coluna (com duas unidades) - a camada de entrada (*input layer*) - está ligada a uma unidade que representa a camada de saída (*output layer*). Além disso, *x* são variáveis de entrada, *w (1 e 2)* são pesos, *w* (0) é viés e *g* é uma função de **combinação linear**.
+
+A rede neural irá aprender quais valores de *w0*, *w1* e *w2* são os mais apropriados. A saída da função *g* será a entrada de uma função de ativação (***activation function***), e a saída dessa segunda função representa o resultado.
+
+#### Activation Function
+A função de ativação de um nó define a saída desse nó, é uma tranformação não linear, portanto tem como entrada a saída da função *g*.
+Foram retomadas as **step function** e **sigmoid function** [abordadas em sessões anteriores](#classification) e foi apresentada a função **ReLU** como exemplos de funções de ativação.
+
+A função ReLU é definida da seguinte forma: 
+
+<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613655428.png"></p>
+
+#### Gradient descent
+O método do gradiente é implementado a fim de minimizar a perda (*loss*) quando se treina uma rede neural. Esse método é um campo do Cálculo e pode ser entendido como uma espécie de declive (*slope*). Representa a direção em que a função de perda (*loss function*) está se movendo dado um ponto e irá determinar quais valores os pesos devem assumir a fim de minimizar a quantidade de perda.
+
+De forma geral e sem aprofundamento na matemática, a ideia do método do gradiente nesse contexto, pode ser formulada da seguinte maneira:
+- Inicia-se com escolhas aleatórias de pesos
+- Repetir:
+    * Calcular o gradiente baseado em todos as unidades de observação (i.e., direção que irá proporcionar a diminuição da perda)
+    * Atualizar os pesos de acordo com o gradiente
+
+O custo computacional quando se considera todos as unidades de observação é grade. Portanto, existem alternativas a essa abordagem:
+- *stochastic gradient descent*: escolhe apenas uma unidade de observação de cada vez e calcula o gradiente. Essa abordagem provavelmente gera resultados menos precisos.
+- *mini-batch gradient descent*: divide o conjunto de dados em pequenos grupos, podendo haver decisões do tamanho de cada um dos grupos. Em contraste com a abordagem *stochastic*, espera-se resultados mais precisos.
