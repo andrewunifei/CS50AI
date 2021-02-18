@@ -222,7 +222,7 @@ hW(X) = 1 if W * X >= 0
 ### Reinforcement Learning
 Aprendizagem por reforço consiste na experiência adquirida. Será dado a um agente um conjunto de recompensas (*rewards*) ou punições (*punishments*) na forma de valores numéricos, e baseado nisso, ele aprende quais ações tomar no futuro.
 
-<p align="center"><img src="https://www.kdnuggets.com/images/reinforcement-learning-fig1-700.jpg"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108392184-37134980-71f1-11eb-9673-1d19048f2683.png"></p>
 
 #### Markov Decision Process
 
@@ -291,7 +291,7 @@ O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método
 Nessa aula foi introduzido o conceito de Rede Neural Artificial (***Artificial Neural Network***). Uma Rede Neural Artificial é um modelo matemático inspirado na rede neural biológica. Tem a característica de modelar uma função matemática a partir de entradas para saídas baseado em sua estrutura e parâmetros. Além disso, ela permite **aprendizagem** dos parâmetros baseado no conjunto de dados em seu domínio. A aula apresentou os conceitos e os tipos de redes neurais mais fundamentais relacionados a esse campo da inteligência artificial.
 
 ### Neural Network Structure and Features
-Foi apresentado uma representação básica de uma estrutura de rede neural a fim de abordar os conceitos de variáveis, unidades (ou neurônios ou nós) de entrada e saída, peso (*weight)*, viés (*bias*) e suas relações.
+Foi apresentado uma representação básica de uma estrutura de rede neural (**perceptron**) a fim de abordar os conceitos de variáveis, unidades (ou neurônios ou nós) de entrada e saída, peso (*weight)*, viés (*bias*) e suas relações.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108361155-e1c74000-71d0-11eb-83a2-108ca262832e.png"></p>
 
@@ -319,3 +319,24 @@ De forma geral e sem aprofundamento na matemática, a ideia do método do gradie
 O custo computacional quando se considera todos as unidades de observação é grade. Portanto, existem alternativas a essa abordagem:
 - *stochastic gradient descent*: escolhe apenas uma unidade de observação de cada vez e calcula o gradiente. Essa abordagem provavelmente gera resultados menos precisos.
 - *mini-batch gradient descent*: divide o conjunto de dados em pequenos grupos, podendo haver decisões do tamanho de cada um dos grupos. Em contraste com a abordagem *stochastic*, espera-se resultados mais precisos.
+
+#### Multiple Outputs Neural Network
+As rede neurais também podem ter múltiplas saídas. E, baseado nos cálculos realizados com as variáveis de entrada e os pesos, um valor associado com cada nó de saída que podem representar, por exemplo, uma probabilidade. Por exemplo:
+
+<p align="center"><img src=""></p>
+
+A rede neural acima é um exemplo de [aprendizagem supervisionada](#supervised-learning) (i.e, os dados são rotulados). Também é possível aplicar a ideia de rede neural de múltiplas saídas utilizando o método de [aprendizagem por reforço](#reinforcement-learning). Isso é atingido quando se considera cada variável de entrada como uma informação sobre o estado atual em que o agente se encontra, e as informações de saída poderiam ser cada uma, por exemplo, diferentes ações que o agente poderia escolher performar.
+A fim de treinar a rede neural do exemplo, em específico, é possível pensar na situação como quatro redes neurais separadas, então se aplica o treinemento em cada um delas separadamente.
+
+#### Limitations
+É importante pensar sobre as limitações nesse tipo de abordagem em que se tem uma combinação linear de variáveis de entrada e pesos e se passa o resultado a uma função de ativação.
+
+Acontece que, quando se realiza uma classificação binária, **só é possível prever dados que são separáveis linearmente (*linear separable*)**, porque se utiliza uma combinação linear para definir um limite de decisão (*decision boundary*). Na seguinte situação é possível estabelecer um limite que separa os pontos laranjas dos azuis.
+
+<p align="center"><img src=""></p>
+   
+Porém, um perceptron realizando uma classificação binária não seria capaz de lidar com uma situação onde nenhuma linha reta é capaz de separar os dados, como na situação a seguir:
+ 
+<p align="center"><img src=""></p>
+
+Esse é um caso que requer um limite de decisão mais complexo. Dados do mundo real, em geral, não são separáveis linearmente.
