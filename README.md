@@ -323,7 +323,7 @@ O custo computacional quando se considera todos as unidades de observação é g
 #### Multiple Outputs Neural Network
 As rede neurais também podem ter múltiplas saídas. E, baseado nos cálculos realizados com as variáveis de entrada e os pesos, um valor associado com cada nó de saída que podem representar, por exemplo, uma probabilidade. Por exemplo:
 
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108399407-d720a100-71f8-11eb-99fe-ea8409485d5a.png"></p>
 
 A rede neural acima é um exemplo de [aprendizagem supervisionada](#supervised-learning) (i.e, os dados são rotulados). Também é possível aplicar a ideia de rede neural de múltiplas saídas utilizando o método de [aprendizagem por reforço](#reinforcement-learning). Isso é atingido quando se considera cada variável de entrada como uma informação sobre o estado atual em que o agente se encontra, e as informações de saída poderiam ser cada uma, por exemplo, diferentes ações que o agente poderia escolher performar.
 A fim de treinar a rede neural do exemplo, em específico, é possível pensar na situação como quatro redes neurais separadas, então se aplica o treinemento em cada um delas separadamente.
@@ -333,10 +333,10 @@ A fim de treinar a rede neural do exemplo, em específico, é possível pensar n
 
 Acontece que, quando se realiza uma classificação binária, **só é possível prever dados que são separáveis linearmente (*linear separable*)**, porque se utiliza uma combinação linear para definir um limite de decisão (*decision boundary*). Na seguinte situação é possível estabelecer um limite que separa os pontos laranjas dos azuis.
 
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108399429-db4cbe80-71f8-11eb-942d-39b178173667.png"></p>
    
 Porém, um perceptron realizando uma classificação binária não seria capaz de lidar com uma situação onde nenhuma linha reta é capaz de separar os dados, como na situação a seguir:
  
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108399443-e0117280-71f8-11eb-8dcf-45e0411ec8d4.png"></p>
 
 Esse é um caso que requer um limite de decisão mais complexo. Dados do mundo real, em geral, não são separáveis linearmente.
