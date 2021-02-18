@@ -1,5 +1,5 @@
 # CS50AI
-Repositório para manter as anotações e atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
+Repositório para manter resumo das anotações e atividades realizadas no curso "CS50AI - Introduction to Artificial Intelligence with Python" distribuído pela *Harvard University*. 
 
 # Table of Contents
 - [Dependencies](#dependencies)
@@ -25,6 +25,7 @@ Repositório para manter as anotações e atividades realizadas no curso "CS50AI
     * [Unsupervised Learning](#unsupervised-learning)
         + [Clustering](#clustering)
     * [Projects](#projects-4)
+- [Lecture 05 - Neural Networks](#lecture-05-neural-networks)
 
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
@@ -118,7 +119,7 @@ O algoritmo de busca que é geralmente utilizado quando se trata de problemas de
 O site da *Harvard University* disponibilizou um projeto que aborda o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture 03 - Optimization* desse repositório. Esse projeto é uma implementação do algoritmo *backtracking search* para solucionar jogos de palavras cruzadas (palavras cruzadas é um problema da categoria de satisfação de restrições).
 
 ## Lecture 04 - Learning
-A aula 04 iniciou a introdução do conceito de **Machine Learning**. O que caracteriza o conceito de *Machine Learning* é a ideia de **não** fornecer instruções explícitas ao computador em como desempenhar uma tarefa, mas apenas acesso a informações no formato de dados ou padrões, e deixar o computador descobrir por conta própria os padrões e entender os dados a fim de realizar a tarefa. Essa aula teve como objetivo explorar os algoritmos mais fundamentais relacionados a esse campo da IA. Foram apresentadas três métodos de aprendizagem de máquina. 
+A aula 04 iniciou a introdução do conceito de ***Machine Learning***. O que caracteriza o conceito de *Machine Learning* é a ideia de **não** fornecer instruções explícitas ao computador em como desempenhar uma tarefa, mas apenas acesso a informações no formato de dados ou padrões, e deixar o computador descobrir por conta própria os padrões e entender os dados a fim de realizar a tarefa. Essa aula teve como objetivo explorar os algoritmos mais fundamentais relacionados a esse campo da IA. Foram apresentadas três métodos de aprendizagem de máquina. 
 
 ### Supervised Learning
 Dado um conjunto de entrada-saída, com saídas classificadas com rótulos (*labels*), a máquina aprende uma função para mapear entradas à saídas. As tarefas (*tasks*), algoritmos e conceitos relacionados a esse método explorados foram:
@@ -284,3 +285,11 @@ O site da *Harvard University* disponibilizou dois projetos que abordam o tema e
 O primeiro projeto consiste em utilizar as funções da biblioteca **scikit-learn** a fim de implementar o método de ***K-nearest-neighbor classification*** presente na aprendizagem supervisionada. O cenário em questão é um site de e-commerce, onde os dados de entrada consistem em um conjunto de informações dos usuários em uma visita ao site e os rótulos (*labels*) são um indicativo (True ou False) de que se, na visita, os usuários finalizaram uma compra ou não. Dado isso, o objetivo do algortimo é, após o treinamento (nesse caso, com 60% dos dados), realizar inferências em realção a intenção dos usuários.
 
 O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método de ***Q-Learning*** presente na aprendizagem por reforço, implementando fazendo uso da equação para obtenção do valor ótimo de Q(s, a) descrita na seção anterior. A IA é treinada dez mil vezes jogando contra si própria antes de jogar contra um humano.
+
+
+## Lecture 05 - Neural Networks
+Nessa aula foi introduzido o conceito de Rede Neural Artificial (***Artificial Neural Network***). Uma Rede Neural Artificial é um modelo matemático inspirado na rede neural biológica. Tem a característica de modelar uma função matemática a partir de entradas para saídas baseado em sua estrutura e parâmetros. Além disso, ela permite **aprendizagem** dos parâmetros baseado no conjunto de dados em seu domínio. A aula apresentou os conceitos e os tipos de redes neurais mais fundamentais relacionados a esse campo da inteligência artificial.
+
+### Neural Network Structure
+Foi apresentado um tipo de estrutura de rede naural básico a fim de abordar unidades (ou neurônios) de entrada e saída, peso (*weight)* e viés (*bias*) e suas relações.
+
