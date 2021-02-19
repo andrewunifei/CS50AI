@@ -40,6 +40,7 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Pooling](#pooling)
         + [Convolutional Neural Network](#convolutional-neural-network)
     * [Recurrent Neural Network](#recurrent-neural-network)
+    * * [Projects](#projects-5)
         
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
@@ -418,3 +419,12 @@ Os tipo de rede neurais descritos nas sessões anteriores fazem parte da categor
 
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108505163-bb1f0d00-7295-11eb-80bb-582c38cdfb49.png"></p>
 
+Na abordagem das redes neurais tradicional apenas existe a definição de pesos, então não ocorre o armazenamento de qualquer informação sobre entradas a fim de ser reutilizadas para iterações futuras. **Redes neurais recorrentes são particularmente úteis quando se trata de um sequência de dados**.
+
+Com essa nova abordagem é possível treinar uma rede neural para descrever uma imagem, como faz o *CaptionBot* da Microsoft. Esse tipo de cenário não é possível para as *feed-forward neural network*, porque nesse caso existe um número fixo de entrada e um número fixo de saída, então é impossível esse tipo de rede neural receber uma imagem como entrada e produzir uma descrição de texto complexa de suas características. Texto é uma sequência de palavras - na abordagem tradicional é possível imaginar uma saída de uma palavra, porém uma sequência de palavras é muito mais desafiador, porque dependendo da imagem podem existir diferentes tipos de tamanhos de saída.
+
+A solução desse problema pode ser alcançada utilizando as *recurrent neural network*, porque elas podem alimentar-se como entrada suas saídas. Isso permite um relacionamento de 1 para N (*one-to-many relationship*) em relação a entrada e saídas. Na abordagem tradicional se tem uma relação de 1 para 1 (*one-to-one relationship*).
+
+Existem diferentes tipos de algoritmos para *recurrent neural network*, um dos mais populares é o *long short-term memory* (*LSTM*).
+
+### Projects
