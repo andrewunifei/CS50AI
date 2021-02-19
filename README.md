@@ -26,7 +26,13 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Clustering](#clustering)
     * [Projects](#projects-4)
 - [Lecture 05 - Neural Networks](#lecture-05---neural-networks)
-
+    * [Neural Network - Structure and Features](#neural-network---structure-and-features)
+        + [Activation Function](#activation-function)
+        + [Gradient Descent](#gradient-descent)
+        + [Multiple Outputs Neural Network](#multiple-outputs-neural-network)
+        + [Limitations](#limitations)
+    * [Multilayer Neural Network](#multilayer-neural-network)
+        
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
 [pygame](https://github.com/pygame/)
@@ -290,7 +296,7 @@ O segundo projeto consiste em treinar uma IA para jogar Nim utilizando o método
 ## Lecture 05 - Neural Networks
 Nessa aula foi introduzido o conceito de Rede Neural Artificial (***Artificial Neural Network***). Uma Rede Neural Artificial é um modelo matemático inspirado na rede neural biológica. Tem a característica de modelar uma função matemática a partir de entradas para saídas baseado em sua estrutura e parâmetros. Além disso, ela permite **aprendizagem** dos parâmetros baseado no conjunto de dados em seu domínio. A aula apresentou os conceitos e os tipos de redes neurais mais fundamentais relacionados a esse campo da inteligência artificial.
 
-### Neural Network Structure and Features
+### Neural Network - Structure and Features
 Foi apresentado uma representação básica de uma estrutura de rede neural (**perceptron**) a fim de abordar os conceitos de variáveis, unidades (ou neurônios ou nós) de entrada e saída, peso (*weight)*, viés (*bias*) e suas relações.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108361155-e1c74000-71d0-11eb-83a2-108ca262832e.png"></p>
@@ -307,7 +313,7 @@ A função ReLU é definida da seguinte forma:
 
 <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613655428.png"></p>
 
-#### Gradient descent
+#### Gradient Descent
 O método do gradiente é implementado a fim de minimizar a perda (*loss*) quando se treina uma rede neural. Esse método é um campo do Cálculo e pode ser entendido como uma espécie de declive (*slope*). Representa a direção em que a função de perda (*loss function*) está se movendo dado um ponto e irá determinar quais valores os pesos devem assumir a fim de minimizar a quantidade de perda.
 
 De forma geral e sem aprofundamento na matemática, a ideia do método do gradiente nesse contexto, pode ser formulada da seguinte maneira:
@@ -340,3 +346,12 @@ Porém, um perceptron realizando uma classificação binária não seria capaz d
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108399443-e0117280-71f8-11eb-8dcf-45e0411ec8d4.png"></p>
 
 Esse é um caso que requer um limite de decisão mais complexo. Dados do mundo real, em geral, não são separáveis linearmente.
+
+### Multilayer Neural Network
+A solução proposta para superar as limitações descritas anteriomente foi a ideia de redes neurais multicamadas. Uma rede neural é uma rede neural multicamadas se satisfazer os seguintes critérios: possuir uma camada de entrada, uma camada de saída e pelo menos uma camada escondida (**hidden layer**).
+
+Cada uma das unidades escondidas (**hidden units**) irão calcular um valor de saída (*activation*) baseado na combinação linear de todos os valores de saída da camada anterior. E após calcular os valores de todas as unidades, o processo é repetido para a camada posterior. Segue um exemplo de estrutura de redes neurais multicamadas:
+
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108433196-56779a00-7224-11eb-9cf6-8531ef65324c.png">
+   
+A vantagem de uma rede neural multicamadas é que ela possibilita a modelagem de funções mais complexas. Ao invés de aprender apenas um limite de decisão, cada uma das unidade escondidas podem aprender um limite de decisão diferente, e esses resultados podem ser combinados para produzir uma saída final.
