@@ -203,7 +203,7 @@ hW(X) = 1 if W * X >= 0
      
 * *Overfitting*
 
-     Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. ENtão é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
+     Um modelo que é muito adequado a um conjunto particular de dados, portanto não é generalizado. Então é muito provável que não seja útil com dados futuros. O objetivo é que o modelo seja generalizado o suficiente para modelar dados que ainda não conhece.
         
      <p align="center"><img src="https://miro.medium.com/max/1125/1*_7OPgojau8hkiPUiHoGK_w.png"></p>
         
@@ -355,3 +355,58 @@ Cada uma das unidades escondidas (**hidden units**) irão calcular um valor de s
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108439742-9e042300-7230-11eb-8dd0-0d62f0768086.png">
    
 A vantagem de uma rede neural multicamadas é que ela possibilita a modelagem de funções mais complexas. Ao invés de aprender apenas um limite de decisão, cada uma das unidade escondidas podem aprender um limite de decisão diferente, e esses resultados podem ser combinados para produzir uma saída final.
+
+#### Backpropagation
+Nessa abordagem não é possível ter conhecimento de quais valores os nós das camadas escondidas devem assumir, portanto, para treinar esse modelo, é preciso considerar a perda no valor de saída. Então, baseado nos pesos que conectam ao nó de saída - se um desses pesos é maior que o outro - é possível calcular uma estimativa do quanto a perda na saída foi devido a alguma parte específica da camada escondida. Isto é, pode-se aplicar uma retropropagação (**backpropagation**) na rede neural com o valor da perda e levantar uma conjectura de quais são os erros de cada um dos nós nas camadas escondidas baseando-se nesse valor.
+
+Sem entrar em detalhes matemáticos, o algoritmo de retropropagação pode ser definido da seguinte forma:
+- Inicia-se com escolhas aleatórias de pesos
+- Repetir:
+    * Calcular a perda para a camada de saída
+    * Para cada camada, começando com a camada de saída, e movendo-se para dentro em direção as camadas escondidas iniciais:
+        + Propagar a perda para a camada anterior: dado o valor de perda, descobrir qual a perda deve ser para a camada anterior baseado nos valores dos pesos
+        + Atualizar os pesos
+
+**O algoritmo de retropropagação é o algoritmo que torna possível a funcionalidade e treinamento das redes neurais multicamadas.**
+
+#### Deep Neural Networks
+As redes neurais profundas são redes neurais com diversas camadas escondidas. Isso permite modelar funções ainda mais sofisticadas: cada camada escondida calcula um aspecto diferente da função que posteriormente são combinados em um função complexa.
+
+#### Overfitting
+[Overfitting](#evaluation-hypotheses) também aparece no contexto de redes neurais. Uma estratégia  popular para lidar com essa situação é a ideia de ***dropout***.
+
+* Dropout: temporariamente remover unidades da rede neural - selecionadas aleatóriamente - para previnir extrema dependência dessas unidades.
+   
+### Computer Vision
+Método computacional para analisar e entender imagens digitais.
+
+Uma situação em que se está lidando com uma imagem muito grande traz problemas. Primeiro, significa uma entrada muito grande para a rede neural. Segundo, significa que todos os detalhes de cada pixel da imagem estão sendo levados em consideração, quando na realidade apenas as características de certas regiões são relevantes. 
+
+Existem procedimentos para reduzir o tamanho e considerar apenas as características relevantes de uma imagem no contexto de visão computacional e rede neural.
+
+#### Image Convulation
+O método de *image convulation* consiste em aplicar um filtro (em forma de matriz) em pixels de uma imagem para detecção de características desses pixels em relação a seus vizinhos, como por exemplo, detecção de curvas. A seguir um exemplo de *image convulation*:
+
+<p align="center"><img src=""></p>
+
+#### Pooling
+Pooling é o método de reduzir o tamanho da entrada considerando amostras de regiões específicas da imagem de entrada. Uma aborgadem de pooling é o ***max-pooling***, que consiste em escolher o maior valor em determinada região, por exemplo:
+
+<p align="center"><img src=""></p>
+
+#### Convolutional neural network
+Tipo de rede neural que usa os métodos de convolução e *pooling*, em geral para analisar imagens. O processo em que a imagem é submetida antes de ser utilizada como entrada para a rede neural é representado da seguinte forma:
+
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108505177-bf4b2a80-7295-11eb-87aa-b14d41d88871.png"></p>
+
+### Recurrent Neural Network
+Os tipo de rede neurais descritos nas sessões anteriores fazem parte da categoria de ***feed-forward neural network*** (i.e., rede neural que tem conexões apenas em uma direção). Nessa sessão será explorada a categoria de ***recurrent neural network***, que pode ser definida como o grupo de redes neurais que geram saídas que são usadas como entradas para si própria em situações futuras.
+
+* Diagrama feed-forward neural network
+
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108505137-b65a5900-7295-11eb-99ec-bd9bcc56fa7a.png"></p>
+
+* Diagrama recurrent neural network
+
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108505163-bb1f0d00-7295-11eb-80bb-582c38cdfb49.png"></p>
+
