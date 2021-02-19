@@ -32,6 +32,14 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Multiple Outputs Neural Network](#multiple-outputs-neural-network)
         + [Limitations](#limitations)
     * [Multilayer Neural Network](#multilayer-neural-network)
+        + [Backpropagation](#backpropagation)
+        + [Deep Neural Networks](#deep-neural-networks)
+        + [Overfitting](#overfitting)
+    * [Computer Vision](#computer-vision)
+        + [Image Convulation](#image-convulation)
+        + [Pooling](#pooling)
+        + [Convolutional Neural Network](#convolutional-neural-network)
+    * [Recurrent Neural Network](#recurrent-neural-network)
         
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
@@ -387,14 +395,14 @@ Existem procedimentos para reduzir o tamanho e considerar apenas as característ
 #### Image Convulation
 O método de *image convulation* consiste em aplicar um filtro (em forma de matriz) em pixels de uma imagem para detecção de características desses pixels em relação a seus vizinhos, como por exemplo, detecção de curvas. A seguir um exemplo de *image convulation*:
 
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108516924-8adf6a80-72a5-11eb-8da8-baf8b8c46f85.png"></p>
 
 #### Pooling
-Pooling é o método de reduzir o tamanho da entrada considerando amostras de regiões específicas da imagem de entrada. Uma aborgadem de pooling é o ***max-pooling***, que consiste em escolher o maior valor em determinada região, por exemplo:
+Pooling é o método de reduzir o tamanho da entrada considerando amostras de regiões específicas da imagem de entrada. Uma aborgadem famosa de pooling é o ***max-pooling***, que consiste em escolher o maior valor em determinada região, por exemplo:
 
-<p align="center"><img src=""></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108516930-8dda5b00-72a5-11eb-86d8-6b3a9c8f8440.png"></p>
 
-#### Convolutional neural network
+#### Convolutional Neural Network
 Tipo de rede neural que usa os métodos de convolução e *pooling*, em geral para analisar imagens. O processo em que a imagem é submetida antes de ser utilizada como entrada para a rede neural é representado da seguinte forma:
 
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108505177-bf4b2a80-7295-11eb-87aa-b14d41d88871.png"></p>
