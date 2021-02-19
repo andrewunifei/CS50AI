@@ -352,6 +352,6 @@ A solução proposta para superar as limitações descritas anteriomente foi a i
 
 Cada uma das unidades escondidas (**hidden units**) irão calcular um valor de saída (*activation*) baseado na combinação linear de todos os valores de saída da camada anterior. E após calcular os valores de todas as unidades, o processo é repetido para a camada posterior. Segue um exemplo de estrutura de redes neurais multicamadas:
 
-<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108433196-56779a00-7224-11eb-9cf6-8531ef65324c.png">
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/108439742-9e042300-7230-11eb-8dd0-0d62f0768086.png">
    
 A vantagem de uma rede neural multicamadas é que ela possibilita a modelagem de funções mais complexas. Ao invés de aprender apenas um limite de decisão, cada uma das unidade escondidas podem aprender um limite de decisão diferente, e esses resultados podem ser combinados para produzir uma saída final.
