@@ -40,7 +40,7 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Pooling](#pooling)
         + [Convolutional Neural Network](#convolutional-neural-network)
     * [Recurrent Neural Network](#recurrent-neural-network)
-    * * [Projects](#projects-5)
+    * [Projects](#projects-5)
         
 ### Dependencies 
 #### TicTacToe Project (Lecture 00), Minesweeper Project (Lecture 01)
