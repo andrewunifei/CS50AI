@@ -73,7 +73,7 @@ Além disso, duas formas de derivar as conclusões lógicas a partir da ideia de
 Por fim, foi apresentado superficialmente o método de Lógica de Primeira Ordem (*First-Order Logic*). Nesse método, existem dois tipos de símbolos: *constant symbols* que representam objetos e *predicate symbols* que representam relações ou funções. Essas funções recebem um argumento e o avalia, por exemplo, como verdadeiro ou falso. Todos os conectivos lógicos da Lógica Proposicional são válidos nesse método. A Lógica de Primeira Ordem também é composta pelo conceito de quantificadores (*quantifiers*). Existe dois tipos principais de quantificação, a quantificação universal (*universal quantifiers*) e a quantificação existencial (*existential quantification*).
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 01 - Knowledge* desse repositório.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture01 - Knowledge* desse repositório.
 
 O primeiro projeto é uma implementação do puzzle *Knights and Knaves* utilizando uma biblioteca de Lógica Proposicional disponibilizada.
 
@@ -89,7 +89,7 @@ Trazendo essas noções para o contexto computacional, a estrutura de dados rede
 Para concluir, foi abordado a noção de probabilidades variando em função do tempo. A fim de modelar essa ideia, foram apresentados os conceitos: suposição Markov (*Markov assumption*), cadeia de Markov (*Markov chain*), modelo oculto de Markov (*hidden Markov model*) e a suposição Markov sobre sensores (*sensor Markov assumption*).
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 02 - Uncertainty* desse repositório.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture02 - Uncertainty* desse repositório.
 
 O primeiro projeto é uma implementação de uma versão do método de ranqueamento de páginas usado pelo Google denomidado "*PageRank*" que toma como parâmetro um corpus de páginas e ranquea as probabilidades de um internauta acessar cada página em função das ligações que elas têm entre si.
 
@@ -131,7 +131,7 @@ Além disso, foram apresentados conceitos de consistência de variável (*node c
 O algoritmo de busca que é geralmente utilizado quando se trata de problemas de satisfação de restrições é o *backtracking search* que, de forma aprimorada, utiliza outro algoritmo chamado *AC3* para manter consistência de arco (*arc consistency*) ao longo do processo.
 
 ### Projects
-O site da *Harvard University* disponibilizou um projeto que aborda o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture 03 - Optimization* desse repositório. Esse projeto é uma implementação do algoritmo *backtracking search* para solucionar jogos de palavras cruzadas (palavras cruzadas é um problema da categoria de satisfação de restrições).
+O site da *Harvard University* disponibilizou um projeto que aborda o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture03 - Optimization* desse repositório. Esse projeto é uma implementação do algoritmo *backtracking search* para solucionar jogos de palavras cruzadas (palavras cruzadas é um problema da categoria de satisfação de restrições).
 
 ## Lecture 04 - Learning
 A aula 04 iniciou a introdução do conceito de ***Machine Learning***. O que caracteriza o conceito de *Machine Learning* é a ideia de **não** fornecer instruções explícitas ao computador em como desempenhar uma tarefa, mas apenas acesso a informações no formato de dados ou padrões, e deixar o computador descobrir por conta própria os padrões e entender os dados a fim de realizar a tarefa. Essa aula teve como objetivo explorar os algoritmos mais fundamentais relacionados a esse campo da IA. Foram apresentadas três métodos de aprendizagem de máquina. 
@@ -295,7 +295,7 @@ Organizar um conjunto de objetos em grupos de forma que objetos similares tendem
 Algoritmo para agrupar dados baseado em na prático de repetidamente associar unidades de observações a grupos e atualizar os centros desses grupos (*cluster's centers*).
 
 ### Projects
-O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture 04 - Learning* desse repositório.
+O site da *Harvard University* disponibilizou dois projetos que abordam o tema explorado nesse aula, as soluções dos projetos se encontram na pasta *Lecture04 - Learning* desse repositório.
 
 O primeiro projeto consiste em utilizar as funções da biblioteca **scikit-learn** a fim de implementar o método de ***K-nearest-neighbor classification*** presente na aprendizagem supervisionada. O cenário em questão é um site de e-commerce, onde os dados de entrada consistem em um conjunto de informações dos usuários em uma visita ao site e os rótulos (*labels*) são um indicativo (True ou False) de que se, na visita, os usuários finalizaram uma compra ou não. Dado isso, o objetivo do algortimo é, após o treinamento (nesse caso, com 60% dos dados), realizar inferências em realção a intenção dos usuários.
 
@@ -428,3 +428,8 @@ A solução desse problema pode ser alcançada utilizando as *recurrent neural n
 Existem diferentes tipos de algoritmos para *recurrent neural network*, um dos mais populares é o *long short-term memory* (*LSTM*).
 
 ### Projects
+O site da *Harvard University* disponibilizou um projeto que abordam o tema explorado nesse aula, a solução do projeto se encontra na pasta *Lecture05 - Neural Networks* desse repositório.
+
+O projeto consiste em treinar uma **Rede Neural Convolucional** para classificar centenas de imagens de placas de trânsito em 43 categorias. A leitura e o redimensionamento das imagens foi realizado utilizando a biblioteca **OpenCV**, que, dado uma imagem, a converte para um `numpy.ndarray`. A biblioteca utilizada para construir a rede neural foi a **TensorFlow** com a API **Keras**. A divisão dos dados em dados de treino e dados de teste foi realizada utilizando a função `train_test_split` da biblioteca **scikit-learn**.
+
+A estrutura da rede neural consiste em duas camadas de convolução e max-pooling, uma camada densa de entrada com um dropout com taxa de 0.5 e outra camada densa de saída com ativação *softmax*. A média de acurácia com os dados de teste é 96%.
