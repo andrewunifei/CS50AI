@@ -1,3 +1,9 @@
+# Andrew Enrique Oliveira
+# Ciência da Computação - Universidade Federal de Itajubá (2017 - )
+# 20/02/2021
+#
+# Os conteúdos de todas as funções, exceto a main, foram implementados por mim
+
 import cv2
 import numpy as np
 import os
@@ -80,17 +86,25 @@ def get_model():
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
     model = tf.keras.models.Sequential([
+                # Convolução 2D
+                # A rede neural irá aprender 64 filtros,
+                # os filtros aplicados têm dimensões 3x3
                 Conv2D(64, (3, 3), activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
+                # Max pooling aplicado terá as dimensões 2x2
                 MaxPooling2D(pool_size=(2, 2)),
 
                 Conv2D(64, (3, 3), activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
                 MaxPooling2D(pool_size=(2, 2)),
 
+                # Flatten: a entrada da camada densa tem que ser 1D,
+                # a funão Flatten recebe um tensor 2D das camadas anteriores e o converte para 1D
                 Flatten(),
-                Dense(128, activation='relu'),
+                
+                Dense(units=128, activation='relu'),
                 Dropout(0.5),
 
-                Dense(NUM_CATEGORIES, activation='softmax')
+                # Ativação 'softmax' representa uma distribuição de probabilidade
+                Dense(units=NUM_CATEGORIES, activation='softmax')
     ])
 
     model.compile(
