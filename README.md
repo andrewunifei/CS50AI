@@ -36,7 +36,7 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Deep Neural Networks](#deep-neural-networks)
         + [Overfitting](#overfitting)
     * [Computer Vision](#computer-vision)
-        + [Image Convulation](#image-convulation)
+        + [Image Convolution](#image-convolation)
         + [Pooling](#pooling)
         + [Convolutional Neural Network](#convolutional-neural-network)
     * [Recurrent Neural Network](#recurrent-neural-network)
@@ -395,8 +395,8 @@ Uma situação em que se está lidando com uma imagem muito grande traz problema
 
 Existem procedimentos para reduzir o tamanho e considerar apenas as características relevantes de uma imagem no contexto de visão computacional e rede neural.
 
-#### Image Convulation
-O método de *image convulation* consiste em aplicar um filtro (em forma de matriz) em pixels de uma imagem para detecção de características desses pixels em relação a seus vizinhos, como por exemplo, detecção de curvas. A seguir um exemplo de *image convulation*:
+#### Image Convolation
+O método de *image convolation* consiste em aplicar um filtro (em forma de matriz) em pixels de uma imagem para detecção de características desses pixels em relação a seus vizinhos, como por exemplo, detecção de curvas. A seguir um exemplo de *image convolation*:
 
 <p align="center"><img src="https://user-images.githubusercontent.com/29299799/108516924-8adf6a80-72a5-11eb-8da8-baf8b8c46f85.png"></p>
 
