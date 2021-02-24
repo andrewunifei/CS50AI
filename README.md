@@ -41,6 +41,8 @@ Repositório para manter resumo das anotações e atividades realizadas no curso
         + [Convolutional Neural Network](#convolutional-neural-network)
     * [Recurrent Neural Network](#recurrent-neural-network)
     * [Projects](#projects-5)
+- [Lecture 06 - Language](#lecture-06---language)
+    * [Projects](#projects-6)
         
 ### Dependencies 
 **TicTacToe Project** (Lecture 00): [pygame](https://github.com/pygame/)
@@ -450,3 +452,5 @@ Também foi abordado a noção de categorização de texto como uma ferramente �
 Ademais, além de aplicar uma classificação ao texto, o objetivo da IA é inferir algum tipo de significado desse texto. Os métodos apresentados para atingir isso foram: *information retrieval*, *topic modeling*, *term frequency*, *function words*, *content words*, *inverse document frequency* e *tf-idf (term frequency * inverse document frequency)*. 
 
 A partir disso, entra-se no campo da semântica. Intuitivamente, uma abordagem para resolver o problema da semântica, é reunir as palavras e seus significados em uma conjunto de dados unificado. Um exemplo disso é o banco de dados **WordNet**. O problema dessa ideia é a incompatibilidade com a mudanças da linguagem e suas relações mais complexas. Por conta disso, uma abordagem mais sofisticada seria representar cada palavra como um vetor de diferentes números, esse método é denominado *distribution representation*. Dessa forma, é possível representar palavras que têm significados semelhantes como vetores semelhantes. Assim, o significado das palavras são obtidos considerando quais outras palavras estão próximas delas em determinado contexto. Um modelo para fazer essa transformação palavra-vetor é o **Word2Vec**. Finalmente, foi apresentado a noção de **skip-gram architecture**, uma rede neural que faz uso da abordagem Word2Vec para prever o contexto de palavras dado uma palavra.
+
+### Projects
