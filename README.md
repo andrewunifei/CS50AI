@@ -111,22 +111,22 @@ Ainda nesse contexto, foi abordado o conceito de *state-space landscape*, que re
 Programação linear geralmente aparece no contexto de resolução para alguma função matemática. É uma família de problemas que apresenta uma situação do seguinte tipo:
 
 Minimizar uma função de custo
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613154101.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173143-7cc72700-921f-11eb-85d4-af4f2ab98645.png"></p>
 Com limitações da forma
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613154145.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173185-86508f00-921f-11eb-97a6-0c0649c07b1b.png"></p>
 E com restrições para cada variável do tipo
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613134174.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173262-95cfd800-921f-11eb-80d1-6a724f414bd4.png"></p>
 Existem vários tipos de algoritmos para solucionar problemas dessa categoria, dois exemplos são *simplex* e *interior-point*.
 
 ### Constraint Satisfaction Problems
 A ideia básica dos problemas da satisfação de restrições é uma situação onde se tem um número de variáveis que terão algum valor atribuido. Então, é necessário descobrir quais valores atribuir para essas variáveis, porém essas variáveis estão sujeitas a restrições particulares que irão limitar quais valores podem ser atribuidos a elas. Essa noção pode ser expressa da seguinte maneira:
 
 Conjunto de variáveis
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135599.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173605-f101ca80-921f-11eb-887c-c05292f58bc2.png"></p>
 Conjunto de domínios para cada variável
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135591.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173631-f7904200-921f-11eb-8eca-a86b8762d254.png"></p>
 E conjunto de restrições
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613135659.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113173653-fd862300-921f-11eb-8d93-a3d615193ab6.png"></p>
 Sudoku é um exemplo de problema da satisfação de restrições.
 
 Foi mostrado que uma possibilidade de estruturar um *CSP* é utilizando grafo (*constraint graph*), onde os vértices representam as variáveis e as arestas representam restrições de domínio entre as variáveis. 
@@ -176,7 +176,7 @@ hW(X) = 1 if W * X >= 0
 * *Perceptron learning rule*
   
      Dado unidade de observação (X, y), atualiza cada peso de acordo com:
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613480411.png" alt="(Falha no carregamento da imagem) ( ADICIONAR FÓRMULA )"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113174060-64a3d780-9220-11eb-9eea-3b63dd1b39d5.png" alt="(Falha no carregamento da imagem)"></p>
         
 * *Support vector machine*
   
@@ -222,7 +222,7 @@ hW(X) = 1 if W * X >= 0
         
      Uma solução para esse problema é penalizar a complexidade da hipótese. Dessa forma, temos,
         
-     <p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613484489.png"></p>
+     <p align="center"><img src="https://user-images.githubusercontent.com/29299799/113174254-94eb7600-9220-11eb-89d2-a7ba7143df8e.png"></p>
         
      Se λ é grande, então existe uma penalização maior da complexidade da hipótese, caso contrário, existe uma penalização menor.
         
@@ -260,7 +260,7 @@ Aprendizagem por reforço consiste na experiência adquirida. Será dado a um ag
     - Atualiza Q(s, a) para levar em consideração velhos e novos valores estimados.
 * Toda vez que se toma uma ação **a** no estado **s** e se observa uma recompensa **r**, obtem-se o valor de Q(s, a) da seguinte forma:
 
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613475908.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113174811-23f88e00-9221-11eb-8c53-f5507f574c6e.png"></p>
 
 * Onde α é a taxa de aprendizagem (*learning rate*) e γ é o fator de desconto (*discount factor*)
 * *Greedy decision-making*
@@ -324,7 +324,7 @@ Foram retomadas as **step function** e **sigmoid function** [abordadas em sessõ
 
 A função ReLU é definida da seguinte forma: 
 
-<p align="center"><img src="http://www.sciweavers.org/download/Tex2Img_1613655428.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/29299799/113175456-cfa1de00-9221-11eb-95bb-01e77656e1ed.png"></p>
 
 #### Gradient Descent
 O método do gradiente é implementado a fim de minimizar a perda (*loss*) quando se treina uma rede neural. Esse método é um campo do Cálculo e pode ser entendido como uma espécie de declive (*slope*). Representa a direção em que a função de perda (*loss function*) está se movendo dado um ponto e irá determinar quais valores os pesos devem assumir a fim de minimizar a quantidade de perda.
